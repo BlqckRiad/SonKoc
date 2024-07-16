@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,7 +16,7 @@ using YksProject.Web_UI.Models.ViewModel;
 
 namespace YksProject.Web_UI.Controllers
 {
-    [Authorize(Roles ="Admin")]
+    
     public class BolumlerController : Controller
     {
         private readonly IHttpClientFactory _clientFactory;
@@ -76,6 +77,8 @@ namespace YksProject.Web_UI.Controllers
             // JSON formatında serialize et
             var content = new StringContent(JsonConvert.SerializeObject(deleteDto), Encoding.UTF8, "application/json");
 
+            
+
             // İstek yap
             var response = await client.PostAsync($"{baseUrl}/Silme", content);
 
@@ -96,6 +99,7 @@ namespace YksProject.Web_UI.Controllers
         [Route("/Bolumler/BolumAdd")]
         public async Task<IActionResult> BolumAdd([FromBody] BolumAddViewModel model)
         {
+
             model.OlusturulmaTarihi=DateTime.Now;
             
             if (ModelState.IsValid)
@@ -110,6 +114,7 @@ namespace YksProject.Web_UI.Controllers
 
                 // StringContent kullanarak JSON içeriğini HttpContent'e dönüştürün
                 var httpContent = new StringContent(jsonContent, Encoding.UTF8, "application/json");
+   
 
                 // HTTP POST isteği yapın ve HttpContent'i kullanın
                 var response = await client.PostAsync(apiURL, httpContent);

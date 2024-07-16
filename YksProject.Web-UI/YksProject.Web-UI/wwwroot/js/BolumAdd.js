@@ -3,11 +3,13 @@
     var bolumAd = $('#BolumAd').val();
     var bolumKod = $('#BolumKod').val();
     var olusturanKisiID = localStorage.getItem('TabloID');
+    var olusturanKisitoken = localStorage.getItem('Token');
     // Veri objesini oluştur
     var veri = {
         BolumAdi: bolumAd,
         BolumAdKodu: bolumKod,
-        OlusturanKisiID: olusturanKisiID
+        OlusturanKisiID: olusturanKisiID,
+        Token: olusturanKisitoken
     };
 
     // Verileri JSON formatına dönüştür

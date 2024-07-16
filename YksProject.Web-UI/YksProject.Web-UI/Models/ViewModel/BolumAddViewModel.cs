@@ -6,6 +6,7 @@ namespace YksProject.Web_UI.Models.ViewModel
     {
         public string BolumAdi { get; set; }
         public string BolumAdKodu { get; set; }
+        public string Token { get; set; }
 
         public DateTime OlusturulmaTarihi { get; set; }
         public int OlusturanKisiID { get; set; }

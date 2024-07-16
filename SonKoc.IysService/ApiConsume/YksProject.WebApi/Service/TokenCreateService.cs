@@ -22,6 +22,9 @@ namespace YksProject.WebApi.Service
 
         public void DeleteMedyaWithUrl (string url);
 
+        public string GetRoleFromToken(string token);
+       
+
     }
     public class TokenCreateService : ITokenCreateService
     {
@@ -156,6 +159,20 @@ namespace YksProject.WebApi.Service
                 _medyaKutuphanesiService.TUpdate(result);
             }
         }
+
+        public string GetRoleFromToken(string token)
+        {
+            
+            var jwtHandler = new JwtSecurityTokenHandler();
+            var jwtToken = jwtHandler.ReadJwtToken(token);
+
+            // Token içindeki rolleri al
+            var roleClaim = jwtToken.Claims.FirstOrDefault(c => c.Type == "role")?.Value;
+
+            return roleClaim;
+        }
+
+       
     }
 
 

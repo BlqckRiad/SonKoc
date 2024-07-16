@@ -4,5 +4,7 @@
     {
         public int SilenKisiID { get; set; }
         public int TabloID { get; set; }
+
+        public string Token { get; set; }
     }
 }
