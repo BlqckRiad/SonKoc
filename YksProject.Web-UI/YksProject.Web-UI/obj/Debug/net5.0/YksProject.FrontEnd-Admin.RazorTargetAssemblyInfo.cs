@@ -17,7 +17,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyProductAttribute("YksProject.FrontEnd-Admin")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0bc2860afdb7a76d3bde0f982097c053f2bab7d0")]
 [assembly: System.Reflection.AssemblyTitleAttribute("YksProject.FrontEnd-Admin.Views")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
 
