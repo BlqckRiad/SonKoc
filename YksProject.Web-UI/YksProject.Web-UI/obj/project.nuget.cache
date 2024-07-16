@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "lPorZZFWrs+6c+LyZBULEKrjwHS457G0fVXagA81E4yUFNk5hOaYfH7jth4KYq4k8SAOi3EUTBAJ24d1ao8Baw==",
+  "dgSpecHash": "6Oy3h/olt5R4leIvcxc7OspnhXTU2BXlQ8y0nnWAw1inLaC5LIGl9EI48wqkzuQdEgDGPlDkalUWJwyerf5DUA==",
   "success": true,
-  "projectFilePath": "D:\\UdemyProject\\SonKocApp\\YksProject.Web-UI\\YksProject.Web-UI\\YksProject.FrontEnd-Admin.csproj",
+  "projectFilePath": "C:\\Users\\MLNPC\\Documents\\GitHub\\SonKoc\\YksProject.Web-UI\\YksProject.Web-UI\\YksProject.FrontEnd-Admin.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\MLNPC\\.nuget\\packages\\bootstrap\\5.3.3\\bootstrap.5.3.3.nupkg.sha512",
     "C:\\Users\\MLNPC\\.nuget\\packages\\firesharp\\2.0.4\\firesharp.2.0.4.nupkg.sha512",
