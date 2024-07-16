@@ -1,0 +1,15 @@
+D:\UdemyProject\SonKocApp\YksProject.Chat\SonKocApp\SonKocApp.DataAccessLayer\bin\Debug\net5.0\SonKocApp.DataAccessLayer.deps.json
+D:\UdemyProject\SonKocApp\YksProject.Chat\SonKocApp\SonKocApp.DataAccessLayer\bin\Debug\net5.0\SonKocApp.DataAccessLayer.dll
+D:\UdemyProject\SonKocApp\YksProject.Chat\SonKocApp\SonKocApp.DataAccessLayer\bin\Debug\net5.0\SonKocApp.DataAccessLayer.pdb
+D:\UdemyProject\SonKocApp\YksProject.Chat\SonKocApp\SonKocApp.DataAccessLayer\bin\Debug\net5.0\SonKocApp.EntityLayer.dll
+D:\UdemyProject\SonKocApp\YksProject.Chat\SonKocApp\SonKocApp.DataAccessLayer\bin\Debug\net5.0\SonKocApp.EntityLayer.pdb
+D:\UdemyProject\SonKocApp\YksProject.Chat\SonKocApp\SonKocApp.DataAccessLayer\obj\Debug\net5.0\SonKocApp.DataAccessLayer.csproj.AssemblyReference.cache
+D:\UdemyProject\SonKocApp\YksProject.Chat\SonKocApp\SonKocApp.DataAccessLayer\obj\Debug\net5.0\SonKocApp.DataAccessLayer.GeneratedMSBuildEditorConfig.editorconfig
+D:\UdemyProject\SonKocApp\YksProject.Chat\SonKocApp\SonKocApp.DataAccessLayer\obj\Debug\net5.0\SonKocApp.DataAccessLayer.AssemblyInfoInputs.cache
+D:\UdemyProject\SonKocApp\YksProject.Chat\SonKocApp\SonKocApp.DataAccessLayer\obj\Debug\net5.0\SonKocApp.DataAccessLayer.AssemblyInfo.cs
+D:\UdemyProject\SonKocApp\YksProject.Chat\SonKocApp\SonKocApp.DataAccessLayer\obj\Debug\net5.0\SonKocApp.DataAccessLayer.csproj.CoreCompileInputs.cache
+D:\UdemyProject\SonKocApp\YksProject.Chat\SonKocApp\SonKocApp.DataAccessLayer\obj\Debug\net5.0\SonKocApp.DataAccessLayer.csproj.CopyComplete
+D:\UdemyProject\SonKocApp\YksProject.Chat\SonKocApp\SonKocApp.DataAccessLayer\obj\Debug\net5.0\SonKocApp.DataAccessLayer.dll
+D:\UdemyProject\SonKocApp\YksProject.Chat\SonKocApp\SonKocApp.DataAccessLayer\obj\Debug\net5.0\refint\SonKocApp.DataAccessLayer.dll
+D:\UdemyProject\SonKocApp\YksProject.Chat\SonKocApp\SonKocApp.DataAccessLayer\obj\Debug\net5.0\SonKocApp.DataAccessLayer.pdb
+D:\UdemyProject\SonKocApp\YksProject.Chat\SonKocApp\SonKocApp.DataAccessLayer\obj\Debug\net5.0\ref\SonKocApp.DataAccessLayer.dll
