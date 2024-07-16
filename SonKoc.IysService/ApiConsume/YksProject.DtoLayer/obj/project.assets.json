@@ -7017,11 +7017,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\MLNPC\\Documents\\GitHub\\SonKoc\\YksProject\\ApiConsume\\YksProject.DtoLayer\\YksProject.DtoLayer.csproj",
+      "projectUniqueName": "C:\\Users\\MLNPC\\Documents\\GitHub\\SonKoc\\SonKoc.IysService\\ApiConsume\\YksProject.DtoLayer\\YksProject.DtoLayer.csproj",
       "projectName": "YksProject.DtoLayer",
-      "projectPath": "C:\\Users\\MLNPC\\Documents\\GitHub\\SonKoc\\YksProject\\ApiConsume\\YksProject.DtoLayer\\YksProject.DtoLayer.csproj",
+      "projectPath": "C:\\Users\\MLNPC\\Documents\\GitHub\\SonKoc\\SonKoc.IysService\\ApiConsume\\YksProject.DtoLayer\\YksProject.DtoLayer.csproj",
       "packagesPath": "C:\\Users\\MLNPC\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\MLNPC\\Documents\\GitHub\\SonKoc\\YksProject\\ApiConsume\\YksProject.DtoLayer\\obj\\",
+      "outputPath": "C:\\Users\\MLNPC\\Documents\\GitHub\\SonKoc\\SonKoc.IysService\\ApiConsume\\YksProject.DtoLayer\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -7042,8 +7042,8 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\MLNPC\\Documents\\GitHub\\SonKoc\\YksProject\\ApiConsume\\YksProject.EntityLayer\\YksProject.EntityLayer.csproj": {
-              "projectPath": "C:\\Users\\MLNPC\\Documents\\GitHub\\SonKoc\\YksProject\\ApiConsume\\YksProject.EntityLayer\\YksProject.EntityLayer.csproj"
+            "C:\\Users\\MLNPC\\Documents\\GitHub\\SonKoc\\SonKoc.IysService\\ApiConsume\\YksProject.EntityLayer\\YksProject.EntityLayer.csproj": {
+              "projectPath": "C:\\Users\\MLNPC\\Documents\\GitHub\\SonKoc\\SonKoc.IysService\\ApiConsume\\YksProject.EntityLayer\\YksProject.EntityLayer.csproj"
             }
           }
         }

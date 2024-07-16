@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "5nmbYec974QipaNj3ymbSpSADo4HVLVJ3XR3sQ5o+DRAS/rjJCshLu/h+SRHXeeOsj/u58RLPbNda/gXDpONXA==",
+  "dgSpecHash": "s/7LloK2qbyIL+Hbe7CyXppQVp7n4WnDxywmqy70aO+pWfLKRr6R/u7ZhWAleXMTQOGtl8LLTnnIcFi57/MW3Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\MLNPC\\Documents\\GitHub\\SonKoc\\YksProject\\ApiConsume\\YksProject.DtoLayer\\YksProject.DtoLayer.csproj",
+  "projectFilePath": "C:\\Users\\MLNPC\\Documents\\GitHub\\SonKoc\\SonKoc.IysService\\ApiConsume\\YksProject.DtoLayer\\YksProject.DtoLayer.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\MLNPC\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\MLNPC\\.nuget\\packages\\jquery\\3.7.1\\jquery.3.7.1.nupkg.sha512",

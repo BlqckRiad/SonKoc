@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = YksProject.DtoLayer
-build_property.ProjectDir = C:\Users\MLNPC\Documents\GitHub\SonKoc\YksProject\ApiConsume\YksProject.DtoLayer\
+build_property.ProjectDir = C:\Users\MLNPC\Documents\GitHub\SonKoc\SonKoc.IysService\ApiConsume\YksProject.DtoLayer\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

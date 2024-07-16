@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "OF8Hnfo9+sSo2Qy/95Uc2l9baMMpjDYULQG4t2c3qwUrGadhUhjcqib2AuIZ0U3jj3++tM+z/W9rv561ktdtAA==",
+  "dgSpecHash": "BeV1Fw891uz/nm9vSSk2x433TMCKh5zT2bt0kPbQge3z1VupbeD0/4Vg37sFIUNSl+qUMf3ByxI8uKwZpQ2oTg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\MLNPC\\Documents\\GitHub\\SonKoc\\YksProject\\ApiConsume\\YksProject.WebApi\\YksProject.WebApi.csproj",
+  "projectFilePath": "C:\\Users\\MLNPC\\Documents\\GitHub\\SonKoc\\SonKoc.IysService\\ApiConsume\\YksProject.WebApi\\YksProject.WebApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\MLNPC\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\MLNPC\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.0\\automapper.extensions.microsoft.dependencyinjection.12.0.0.nupkg.sha512",

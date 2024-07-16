@@ -26,7 +26,12 @@ namespace YksProject.WebApi.Controllers
             var result = _bolumlerService.TGetList().Where(x => x.SilindiMi == false).ToList();
             return result;
         }
-
+        [HttpGet]
+        public ActionResult<List<Bolumler>> ListBolum2()
+        {
+            var result = _bolumlerService.TGetList().Where(x => x.SilindiMi == false).ToList();
+            return result;
+        }
 
         [HttpPost("Silme")]
         public IActionResult DeleteBolum(DeleteDto model)
