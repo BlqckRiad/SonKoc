@@ -1,0 +1,35 @@
+﻿@model bool
+
+<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+    <!-- Sidebar - Brand -->
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" asp-action="Index" asp-controller="Home">
+        <div class="sidebar-brand-text mx-3">YKS <sup>2</sup> ADMİN</div>
+    </a>
+
+    <!-- Nav Item - Dashboard -->
+    <li class="nav-item">
+        <a class="nav-link" asp-action="Index" asp-controller="Home">
+            <span>Ana Sayfa</span>
+        </a>
+       
+        <a class="nav-link" asp-action="YapilacaklarListele" asp-controller="Yapilacaklar" asp-route-id="1">
+            <span>Yapilacaklar İşlemleri</span>
+        </a>
+
+        <!-- Sidebar Toggler (Sidebar) -->
+        <hr />
+
+        <!-- Sidebar Message -->
+        <div class="sidebar-card d-none d-lg-flex">
+            @if (Model)
+            {
+                <a href="@Url.Action("Logout", "Account")" class="nav-link">Çıkış Yap</a>
+            }
+            else
+            {
+                <a href="@Url.Action("Login", "Account")" class="nav-link">Giriş Yap</a>
+            }
+        </div>
+    </li>
+</ul>

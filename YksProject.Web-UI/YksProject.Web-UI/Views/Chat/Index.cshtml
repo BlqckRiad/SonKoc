@@ -1,0 +1,191 @@
+﻿@{
+    ViewData["Title"] = "Mesaj";
+    Layout = "_LayoutAdmin";
+    ViewData["PageTitle"] = "Mesaj Işlemleri";
+    ViewData["PageMainAdresse"] = "/Chat/Index";
+    ViewData["PageMainTitle"] = "Mesaj Işlemleri";
+    ViewData["PageTwiceTitle"] = "Mesaj Gönder";
+}
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/5.0.12/signalr.min.js"></script>
+<link href="~/css/Chat.css" rel="stylesheet" />
+
+
+<style>
+    #chat {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+
+        #chat li {
+            margin-bottom: 10px; /* İstediğiniz boşluk miktarını ayarlayabilirsiniz */
+        }
+    header {
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        background-color: #f0f0f0;
+    }
+
+        header img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        header div {
+            display: flex;
+            flex-direction: column;
+        }
+
+        header h2, header h3 {
+            margin: 0;
+        }
+    .user-list {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .user-list-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
+        .user-list-item img {
+            width: 50px; /* Resim boyutunu küçültüyoruz */
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+    .user-info {
+        display: flex;
+        flex-direction: column;
+    }
+
+        .user-info h2 {
+            margin: 0;
+            font-size: 1.2em;
+        }
+
+        .user-info h3 {
+            margin: 0;
+            font-size: 0.9em;
+            display: flex;
+            align-items: center;
+        }
+
+    .status {
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        margin-right: 5px;
+    }
+
+        .status.orange {
+            background-color: orange;
+        }
+
+        .status.green {
+            background-color: green;
+        }
+</style>
+
+<div id="container">
+    <aside>
+        <header>
+            <input type="text" placeholder="search">
+        </header>
+        <ul id="user-list" class="user-list">
+            <!-- Dinamik içerik buraya eklenecek -->
+        </ul>
+    </aside>
+    <main>
+        <header id="user-header">
+            <img src="" alt="">
+            <div>
+                <h2></h2>
+                <h3>Status: <span id="status"></span></h3>
+            </div>
+        </header>
+        <ul id="chat">
+           
+        </ul>
+        <footer>
+            <textarea id="messageArea"placeholder="Mesajınızı Giriniz"></textarea>
+            <button id="send-button" class="btn btn-primary">Send</button>
+        </footer>
+    </main>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="module"src="~/js/chatlist.js"></script>
+<script>
+   
+
+    function newMessage(newMessage) {
+        var loginUserName = localStorage.getItem("UserName");
+        const chatList = document.getElementById('chat');
+
+        const li = document.createElement('li');
+        li.className = 'you'; // Veya 'you' class'ı
+
+        const enteteDiv = document.createElement('div');
+        enteteDiv.className = 'entete';
+
+        const h3 = document.createElement('h3');
+        h3.textContent = new Date(newMessage.olusturulmaTarihi).toLocaleString();
+
+       
+
+        const statusSpan = document.createElement('span');
+        statusSpan.className = 'status blue';
+
+        enteteDiv.appendChild(h3);
+      
+        enteteDiv.appendChild(statusSpan);
+
+        const triangleDiv = document.createElement('div');
+        triangleDiv.className = 'triangle';
+
+        const messageDiv = document.createElement('div');
+        messageDiv.className = 'message';
+        messageDiv.textContent = newMessage.mesajText;
+
+        li.appendChild(enteteDiv);
+        li.appendChild(triangleDiv);
+        li.appendChild(messageDiv);
+
+        chatList.appendChild(li);
+
+
+
+        // Scroll'u en aşağıya getir
+        chatList.scrollTop = chatList.scrollHeight;
+    }
+    function userStatus(user) {
+        const userListItems = document.querySelectorAll('.user-list-item');
+        userListItems.forEach(item => {
+            const username = item.querySelector('h2').textContent;
+            if (username === user.kisiKullaniciAdi) {
+                const statusSpan = item.querySelector('.status');
+                if (user.userOnlineMi) {
+                    statusSpan.className = 'status green';
+                    statusSpan.nextSibling.nodeValue = 'online';
+                } else {
+                    statusSpan.className = 'status orange';
+                    statusSpan.nextSibling.nodeValue = 'offline';
+                }
+            }
+        });
+    }
+   
+ 
+</script>
+

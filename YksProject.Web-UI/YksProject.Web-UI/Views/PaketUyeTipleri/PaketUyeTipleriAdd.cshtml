@@ -1,0 +1,31 @@
+﻿@{
+    ViewData["Title"] = "PaketUyeTipleri";
+    Layout = "_LayoutAdmin";
+    ViewData["PageTitle"] = "PaketUyeTipleri Işlemleri";
+    ViewData["PageMainAdresse"] = "/PaketUyeTipleri/PaketUyeTipleriList";
+    ViewData["PageMainTitle"] = "PaketUyeTipleri Işlemleri";
+    ViewData["PageTwiceTitle"] = "PaketUyeTipleri Ekle";
+}
+
+<h2>Paket Uye Tipleri Ekleme Sayfası </h2>
+
+
+<br />
+<label>Üye Tipi Adı </label>
+<input type="text" id="uyeTipiAdi" class="form-control" />
+
+<br />
+<label>Üye Tipi Aciklamasi </label>
+<input type="text" id="uyeTipiAciklamasi" class="form-control" />
+
+<br />
+
+<button class="btn  mb-1 btn-rounded btn-primary" onclick="Ekle()">Ekle</button>
+<button class="btn  mb-1 btn-rounded btn-info" onclick="ListelemeyeDon()">Listelemeye Dön</button>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+
+
+<script src="~/js/paketuyetipleriadd.js"></script>

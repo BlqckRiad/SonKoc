@@ -1,0 +1,30 @@
+﻿@{
+    ViewData["Title"] = "Bildirimler";
+    Layout = "_LayoutAdmin";
+    ViewData["PageTitle"] = "Bildirim Işlemleri";
+    ViewData["PageMainAdresse"] = "/Admin/BildirimList";
+    ViewData["PageMainTitle"] = "Bildirim İşlemleri";
+    ViewData["PageTwiceTitle"] = "Bildirim Ekleme";
+}
+
+
+
+<h2>Bildirim Gönderme Sayfası </h2>
+<br />
+<label>Bildirim Başlığı </label>
+<input type="text" id="bildirimbasligi" class="form-control" />
+<br />
+<label>Bildirim Açıklaması</label>
+<textarea id="bildirimaciklamasi" class="form-control"></textarea>
+<br />
+
+<label>Bildirim Gönderilecek Kişi ID (Herkese ise = 0) </label>
+<input type="text" id="aliciid" class="form-control" />
+<br />
+<button class="btn  mb-1 btn-rounded btn-primary" onclick="BildirimEkle()">Ekle</button>
+<button class="btn  mb-1 btn-rounded btn-info" onclick="ListelemeyeDon()">Listelemeye Dön</button>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+<script src="~/js/admin/admin-bildirimadd.js"></script>

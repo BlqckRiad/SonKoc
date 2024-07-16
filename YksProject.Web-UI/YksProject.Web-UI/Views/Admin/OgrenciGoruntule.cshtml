@@ -1,0 +1,36 @@
+﻿@{
+    ViewData["Title"] = "Yönetim Paneli";
+    Layout = "_LayoutAdmin";
+    ViewData["PageTitle"] = "Yönetim Paneli";
+    ViewData["PageMainAdresse"] = "/Admin/Index";
+    ViewData["PageMainTitle"] = "Yönetim Paneli";
+    ViewData["PageTwiceTitle"] = "Öğrenciler";
+}
+
+<h1>Öğrenci Listele</h1>
+
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
+
+<div class="">
+   
+    <table id="OgrenciGenelTable" style="width: 100% !important;" class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Öğrenci Adi</th>
+                <th>Öğrenci Soyadi</th>
+                <th>Öğrenci Kullanıcı Adı</th>
+                <th>Öğrenci Email</th>
+                <th>Öğrenci Telefon No</th>
+                <th>Öğrenci Kayıt Tarihi</th>
+              
+            </tr>
+        </thead>
+        <tbody id="tbody">
+        </tbody>
+    </table>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+<script src="~/js/admin/admin-ogrencilist.js"></script>

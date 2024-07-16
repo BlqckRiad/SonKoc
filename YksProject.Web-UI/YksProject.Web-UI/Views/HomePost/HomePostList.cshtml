@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewData["Title"] = "Home-Post";
+    Layout = "_LayoutAdmin";
+    ViewData["PageTitle"] = "Home Post Işlemleri";
+    ViewData["PageMainAdresse"] = "/HomePost/HomePostList";
+    ViewData["PageMainTitle"] = "HomePost Işlemleri";
+    ViewData["PageTwiceTitle"] = "HomePost Listele";
+}
+
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
+
+<div class="">
+    <a asp-action="HomePostAdd" asp-controller="HomePost" class="btn  mb-1 btn-rounded btn-info">Ekle</a>
+    <table id="HomePostGenelTable" style="width: 100% !important;" class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Post Sahibi</th>
+                <th>Post Adı</th>
+                <th>Post Aciklamasi</th>
+                <th>Post Fotografı</th>
+                <th>Post Yayında Mı ?</th>
+                <th>Post Gorulme Sayısı</th>
+                <th>Post Tıklanma Sayısı</th>
+                <th>Sil</th>
+                <th>Güncelle</th>
+            </tr>
+        </thead>
+        <tbody id="tbody">
+        </tbody>
+    </table>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+<script src="~/js/homepost/homepostlist.js"></script>

@@ -1,0 +1,38 @@
+﻿@{
+    ViewData["Title"] = "HomePost";
+    Layout = "_LayoutAdmin";
+    ViewData["PageTitle"] = "HomePost Işlemleri";
+    ViewData["PageMainAdresse"] = "/HomePost/HomePostList";
+    ViewData["PageMainTitle"] = "HomePost Işlemleri";
+    ViewData["PageTwiceTitle"] = "HomePost Ekle";
+}
+
+<h2>HomePost Ekleme Sayfası </h2>
+<br />
+<label>Post Sahibi </label>
+<input type="text" id="HomePostSahibi" class="form-control" />
+<br />
+<label>Post Başlığı </label>
+<input type="text" id="HomePostAdi" class="form-control" />
+<br />
+<label>Post Açıklaması </label>
+<textarea id ="HomePostAciklamasi" class="form-control"></textarea>
+<br />
+<label>Post Ikonu </label>
+<input type="file" id="PostImage" class="form-control" />
+
+<br />
+<button class="btn  mb-1 btn-rounded btn-primary" onclick="HomePostEkle()">Ekle</button>
+<button class="btn  mb-1 btn-rounded btn-info" onclick="ListelemeyeDon()">Listelemeye Dön</button>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+<script>
+    function ListelemeyeDon() {
+        location.href = "/HomePost/HomePostList";
+    }
+
+
+</script>
+<script src="~/js/homepost/homepostadd.js"></script>

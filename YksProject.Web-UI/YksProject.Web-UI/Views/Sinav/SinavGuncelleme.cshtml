@@ -1,0 +1,34 @@
+﻿@{
+    ViewData["Title"] = "Sinavlar";
+    Layout = "_LayoutAdmin";
+    ViewData["PageTitle"] = "Sinav Işlemleri";
+    ViewData["PageMainAdresse"] = "/Sinav/SinavListeleme";
+    ViewData["PageMainTitle"] = "Sinav Işlemleri";
+    ViewData["PageTwiceTitle"] = "Sinav Güncelleme";
+}
+<h2>Sinav Güncelleme Sayfası </h2>
+<br />
+<label>Sinav Adı </label>
+<input type="text" id="sAdi" class="form-control" />
+<br />
+<label>Sinav Kodu </label>
+<input type="text" id="sKodu" class="form-control" />
+<br />
+<label>Sinav Tipi </label>
+<select id="sTipi" class="form-control"></select>
+<br />
+
+
+<label>Sinav Süresi (Dk) </label>
+<input type="number" id="sSüresi" class="form-control" />
+<br />
+<button class="btn  mb-1 btn-rounded btn-primary" onclick="Guncelle()">Güncelle</button>
+<button class="btn  mb-1 btn-rounded btn-info" onclick="ListelemeyeDon()">Listelemeye Dön</button>
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+<script src="~/js/SinavGuncelleme.js"></script>
+

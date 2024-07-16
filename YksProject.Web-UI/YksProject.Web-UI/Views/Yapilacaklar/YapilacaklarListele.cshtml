@@ -1,0 +1,110 @@
+﻿
+@{
+    ViewData["Title"] = "Yapilacaklar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<style>
+    .custom-checkbox {
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+        .custom-checkbox input[type="checkbox"] {
+            display: none;
+        }
+
+        .custom-checkbox label {
+            position: relative;
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            background-color: #fff;
+            border: 2px solid #aaa;
+            border-radius: 4px;
+        }
+
+            .custom-checkbox label:after {
+                content: "";
+                position: absolute;
+                display: none;
+                left: 6px;
+                top: 2px;
+                width: 6px;
+                height: 10px;
+                border: solid #000;
+                border-width: 0 2px 2px 0;
+                transform: rotate(45deg);
+            }
+
+        .custom-checkbox input[type="checkbox"]:checked + label:after {
+            display: block;
+        }
+
+    .selected-button {
+        background-color: blue !important;
+        color: black !important;
+    }
+
+</style>
+
+<script src="~/js/yapilacaklarlist.js"></script>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-auto">
+            <button id="btn-day-1" type="button" class="btn btn-outline-info btn-day" onclick="goToDay(1)">Pazartesi</button>
+        </div>
+        <div class="col-auto">
+            <button id="btn-day-2" type="button" class="btn btn-outline-info btn-day" onclick="goToDay(2)">Salı</button>
+        </div>
+        <div class="col-auto">
+            <button id="btn-day-3" type="button" class="btn btn-outline-info btn-day" onclick="goToDay(3)">Çarşamba</button>
+        </div>
+        <div class="col-auto">
+            <button id="btn-day-4" type="button" class="btn btn-outline-info btn-day" onclick="goToDay(4)">Perşembe</button>
+        </div>
+        <div class="col-auto">
+            <button id="btn-day-5" type="button" class="btn btn-outline-info btn-day" onclick="goToDay(5)">Cuma</button>
+        </div>
+        <div class="col-auto">
+            <button id="btn-day-6" type="button" class="btn btn-outline-info btn-day" onclick="goToDay(6)">Cumartesi</button>
+        </div>
+        <div class="col-auto">
+            <button id="btn-day-7" type="button" class="btn btn-outline-info btn-day" onclick="goToDay(7)">Pazar</button>
+        </div>
+        
+    </div>
+</div>
+    
+    <hr />
+
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
+
+<div class="text-center">
+    <h2 itemid="gün">Programım</h2>
+    <table id="YapilacaklarGenelTable" style="width: 60% !important; margin: 0 auto;" class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Yapilacak Görev</th>
+                <th>Yapıldı Mı ??</th>
+            </tr>
+        </thead>
+        <tbody id="tbody">
+            <!-- Tablo içeriği buraya eklenecek -->
+        </tbody>
+    </table>
+</div>
+
+
+
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+<script>
+  
+
+    function goToDay(day) {
+        location.href = "/Yapilacaklar/YapilacaklarListele/" + day;
+    }
+</script>

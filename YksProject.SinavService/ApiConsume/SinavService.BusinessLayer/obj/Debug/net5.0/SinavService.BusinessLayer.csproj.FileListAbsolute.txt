@@ -1,0 +1,17 @@
+D:\UdemyProject\SonKocApp\YksProject.SinavService\ApiConsume\SinavService.BusinessLayer\bin\Debug\net5.0\SinavService.BusinessLayer.deps.json
+D:\UdemyProject\SonKocApp\YksProject.SinavService\ApiConsume\SinavService.BusinessLayer\bin\Debug\net5.0\SinavService.BusinessLayer.dll
+D:\UdemyProject\SonKocApp\YksProject.SinavService\ApiConsume\SinavService.BusinessLayer\bin\Debug\net5.0\SinavService.BusinessLayer.pdb
+D:\UdemyProject\SonKocApp\YksProject.SinavService\ApiConsume\SinavService.BusinessLayer\bin\Debug\net5.0\SinavService.DataAccessLayer.dll
+D:\UdemyProject\SonKocApp\YksProject.SinavService\ApiConsume\SinavService.BusinessLayer\bin\Debug\net5.0\SinavService.EntityLayer.dll
+D:\UdemyProject\SonKocApp\YksProject.SinavService\ApiConsume\SinavService.BusinessLayer\bin\Debug\net5.0\SinavService.DataAccessLayer.pdb
+D:\UdemyProject\SonKocApp\YksProject.SinavService\ApiConsume\SinavService.BusinessLayer\bin\Debug\net5.0\SinavService.EntityLayer.pdb
+D:\UdemyProject\SonKocApp\YksProject.SinavService\ApiConsume\SinavService.BusinessLayer\obj\Debug\net5.0\SinavService.BusinessLayer.csproj.AssemblyReference.cache
+D:\UdemyProject\SonKocApp\YksProject.SinavService\ApiConsume\SinavService.BusinessLayer\obj\Debug\net5.0\SinavService.BusinessLayer.GeneratedMSBuildEditorConfig.editorconfig
+D:\UdemyProject\SonKocApp\YksProject.SinavService\ApiConsume\SinavService.BusinessLayer\obj\Debug\net5.0\SinavService.BusinessLayer.AssemblyInfoInputs.cache
+D:\UdemyProject\SonKocApp\YksProject.SinavService\ApiConsume\SinavService.BusinessLayer\obj\Debug\net5.0\SinavService.BusinessLayer.AssemblyInfo.cs
+D:\UdemyProject\SonKocApp\YksProject.SinavService\ApiConsume\SinavService.BusinessLayer\obj\Debug\net5.0\SinavService.BusinessLayer.csproj.CoreCompileInputs.cache
+D:\UdemyProject\SonKocApp\YksProject.SinavService\ApiConsume\SinavService.BusinessLayer\obj\Debug\net5.0\SinavService.BusinessLayer.csproj.CopyComplete
+D:\UdemyProject\SonKocApp\YksProject.SinavService\ApiConsume\SinavService.BusinessLayer\obj\Debug\net5.0\SinavService.BusinessLayer.dll
+D:\UdemyProject\SonKocApp\YksProject.SinavService\ApiConsume\SinavService.BusinessLayer\obj\Debug\net5.0\refint\SinavService.BusinessLayer.dll
+D:\UdemyProject\SonKocApp\YksProject.SinavService\ApiConsume\SinavService.BusinessLayer\obj\Debug\net5.0\SinavService.BusinessLayer.pdb
+D:\UdemyProject\SonKocApp\YksProject.SinavService\ApiConsume\SinavService.BusinessLayer\obj\Debug\net5.0\ref\SinavService.BusinessLayer.dll

@@ -1,0 +1,29 @@
+﻿@{
+    ViewData["Title"] = "SinavTipleri";
+    Layout = "_LayoutAdmin";
+    ViewData["PageTitle"] = "Sinav Tipleri Işlemleri";
+    ViewData["PageMainAdresse"] = "/SinavTipleri/SinavTipiListele";
+    ViewData["PageMainTitle"] = "Sinav Tipleri Işlemleri";
+    ViewData["PageTwiceTitle"] = "Sinav Tipleri Ekle";
+}
+
+<h2>Sinav Tipi Ekleme Sayfası </h2>
+<br />
+<label>Sinav Tipi Adı </label>
+<input type="text" id="sad" class="form-control" />
+<br />
+
+<button class="btn  mb-1 btn-rounded btn-primary" onclick="Ekle()">Ekle</button>
+<button class="btn  mb-1 btn-rounded btn-info" onclick="ListelemeyeDon()">Listelemeye Dön</button>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+<script>
+    function ListelemeyeDon() {
+        location.href = "/SinavTipleri/SinavTipiListele";
+    }
+
+
+</script>
+<script src="~/js/Sinav/sinavtipiadd.js"></script>

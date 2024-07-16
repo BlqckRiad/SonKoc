@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\YksProject.FrontEnd-Admin.props" />
+</Project>

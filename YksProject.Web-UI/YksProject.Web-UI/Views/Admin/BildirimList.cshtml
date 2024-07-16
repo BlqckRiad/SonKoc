@@ -1,0 +1,33 @@
+﻿@{
+    ViewData["Title"] = "Bildirimler";
+    Layout = "_LayoutAdmin";
+    ViewData["PageTitle"] = "Bildirim Işlemleri";
+    ViewData["PageMainAdresse"] = "/Admin/BildirimList";
+    ViewData["PageMainTitle"] = "Bildirim İşlemleri";
+    ViewData["PageTwiceTitle"] = "Bildirim Listele";
+}
+
+
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
+
+<div class="">
+    <a asp-action="BildirimAdd" asp-controller="Admin" class="btn  mb-1 btn-rounded btn-info">Ekle</a>
+    <table id="BildirimlerGenelTable" style="width: 100% !important;" class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Alıcı Kişi</th>
+                <th>Bildirim Başlığı</th>
+                <th>Bildirim Açıklaması</th>
+                <th>Sil</th>
+                
+            </tr>
+        </thead>
+        <tbody id="tbody">
+        </tbody>
+    </table>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+<script src="~/js/admin/admin-bildirimlist.js"></script>

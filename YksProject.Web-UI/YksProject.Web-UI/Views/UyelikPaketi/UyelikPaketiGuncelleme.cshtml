@@ -1,0 +1,61 @@
+﻿@{
+    ViewData["Title"] = "Uyelik Paketi";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ViewData["PageTitle"] = "Uyelik Paketi Işlemleri";
+    ViewData["PageMainAdresse"] = "/UyelikPaketi/UyelikPaketiList";
+    ViewData["PageMainTitle"] = "Uyelik Paketi Işlemleri";
+    ViewData["PageTwiceTitle"] = "Uyelik Paketi Güncelle";
+}
+
+
+<h2>Üyelik Paketi Gümcelleme Sayfası </h2>
+<br />
+<label>Paket Adı </label>
+<input type="text" id="paketAd" class="form-control" />
+<br />
+<label>Paket Açıklaması </label>
+<input type="text" id="paketDesc" class="form-control" />
+<br />
+
+<label>Paket Ücreti </label>
+<input type="text" id="paketucret" class="form-control" />
+<br />
+<label>Paket İndirim Oranı </label>
+<input type="text" id="paketindirimorani" class="form-control" />
+<br />
+
+<label>Paket Kimin İçin </label>
+<select name="sinav" id="pakettipi" class="form-control">
+    <option value="0">Seçiniz</option>
+
+</select>
+<br />
+
+<label>Paket İçeriğinde Kaç Hesap Olacak ? </label>
+<input type="text" id="paketKisiSayisi" class="form-control" />
+<br />
+
+<label>Paket Ikonu Şuanki Hali</label>
+<br />
+<img id="paketIkonu" src="null.png" alt="Şuanki Resim" style="width:350px;">
+
+<br />
+
+
+<label>Paket Ikonu Değiştirmek İstermisin ? </label>
+<input type="file" id="paketImage" class="form-control" />
+
+<br />
+
+<button class="btn  mb-1 btn-rounded btn-primary" onclick="Guncelle()">Guncelle</button>
+<button class="btn  mb-1 btn-rounded btn-info" onclick="ListelemeyeDon()">Listelemeye Dön</button>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+<script src="~/js/uyelikpaketi/uyelikpaketiupdate.js"></script>
+<script>
+    function ListelemeyeDon() {
+        location.href = "/UyelikPaketi/UyelikPaketiList";
+    }
+</script>

@@ -1,0 +1,51 @@
+﻿@{
+    ViewData["Title"] = "Referanslar";
+    Layout = "_LayoutAdmin";
+    ViewData["PageTitle"] = "Referans Işlemleri";
+    ViewData["PageMainAdresse"] = "/Referanslarimiz/ReferansListeleme";
+    ViewData["PageMainTitle"] = "Referans Işlemleri";
+    ViewData["PageTwiceTitle"] = "Referans Güncelle";
+}
+
+<h2>Referans Güncelleme Sayfası </h2>
+
+
+<br />
+<label>Referans Adı </label>
+<input type="text" id="ReferansAdi" class="form-control" />
+
+<br />
+<label>Referans Aciklamasi </label>
+<input type="text" id="ReferansAciklamasi" class="form-control" />
+
+<br />
+<label>Referans Olan Kişi Rolü </label>
+<input type="text" id="ReferansRolu" class="form-control" />
+
+<br />
+<label>Referans Puanı </label>
+<input type="number" id="ReferansPuani" class="form-control" />
+
+<br />
+
+
+<label>Referans Ikonu Şuanki Hali</label>
+<br />
+<img id="referansIkonu" src="null.png" alt="Şuanki Resim" style="width:350px;">
+
+<br />
+
+
+
+<label>Referans Ikonu Değiştirmek İstermisin?</label>
+<input type="file" id="ReferansImage" class="form-control" />
+
+<br />
+
+<button class="btn  mb-1 btn-rounded btn-primary" onclick="Guncelle()">Güncelle</button>
+<button class="btn  mb-1 btn-rounded btn-info" onclick="ListelemeyeDon()">Listelemeye Dön</button>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script src="/js/referansguncelle.js"></script>

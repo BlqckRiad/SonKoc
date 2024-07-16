@@ -1,0 +1,38 @@
+﻿@{
+    ViewData["Title"] = "Konular";
+    Layout = "_LayoutAdmin";
+    ViewData["PageTitle"] = "Konu Işlemleri";
+    ViewData["PageMainAdresse"] = "/Konular/KonularList";
+    ViewData["PageMainTitle"] = "Konu Işlemleri";
+    ViewData["PageTwiceTitle"] = "Konu Listele";
+}
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
+
+<div class="">
+    <a asp-action="KonularAdd" asp-controller="Konular" class="btn  mb-1 btn-rounded btn-info">Ekle</a>
+    <table id="KonularGenelTable" style="width: 100% !important;" class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Konu Adi</th>
+                <th>Konu İlgili Dersi</th>
+                <th>Konu 2025 Soru Sayisi</th>
+                <th>Konu 2024 Soru Sayisi</th>
+                <th>Konu 2023 Soru Sayisi</th>
+                <th>Konu Aciklamasi</th>
+                <th>Konu Aciklama Yapan Kisi Adı</th>
+                <th>Konu Aciklama Yapan Kisi Rolü</th>
+                <th>Sil</th>
+                <th>Güncelle</th>
+            </tr>
+        </thead>
+        <tbody id="tbody">
+        </tbody>
+    </table>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+
+
+<script src="~/js/konular/konularlist.js"></script>
