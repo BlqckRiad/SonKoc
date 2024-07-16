@@ -1,0 +1,20 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using YksProject.DataAccessLayer.Abstract;
+using YksProject.DataAccessLayer.Concrete;
+using YksProject.DataAccessLayer.Repository;
+using YksProject.EntityLayer.Concrete;
+
+namespace YksProject.DataAccessLayer.EntityFramework
+{
+    public class EfHomePostDal : GenericRepository<HomePost>,IHomePostDal
+    {
+        public EfHomePostDal(Context context) : base(context)
+        {
+
+        }
+    }
+}
