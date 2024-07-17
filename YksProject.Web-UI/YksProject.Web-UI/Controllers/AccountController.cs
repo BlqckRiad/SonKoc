@@ -54,9 +54,17 @@ namespace YksProject.Web_UI.Controllers
 
             if (response.IsSuccessStatusCode)
             {
+                
                 var responseContent = await response.Content.ReadAsStringAsync();
                 var responseObject = JsonConvert.DeserializeObject<TokenValidateDto>(responseContent);
-
+                if(responseObject.KisiImageUrl == null)
+                {
+                    responseObject.KisiImageUrl = "http://localhost:6079/images/logo.jpg";
+                }
+                if(responseObject.KisiImageUrl == "")
+                {
+                    responseObject.KisiImageUrl = "http://localhost:6079/images/logo.jpg";
+                }
                 try
                 {
                     // Mevcut oturumu sonlandır

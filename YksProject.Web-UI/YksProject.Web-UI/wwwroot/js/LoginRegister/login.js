@@ -24,13 +24,16 @@
         contentType: 'application/json',
         data: jsonData, // Dönüştürülmüş JSON verilerini gönder
         success: function (response) {
-        
+            var secretKey = "SKSecretKey";
+            var encryptedUserName = CryptoJS.AES.encrypt(response.data.userName, secretKey).toString();
+            var encryptedRole = CryptoJS.AES.encrypt(response.data.role, secretKey).toString();
+            var encryptedToken = CryptoJS.AES.encrypt(response.data.token, secretKey).toString();
             if (response.success) {
                 // LocalStorage'a verileri yaz
                 localStorage.setItem('TabloID', response.data.tabloID);
-                localStorage.setItem('UserName', response.data.userName);
-                localStorage.setItem('Token', response.data.token);
-                localStorage.setItem('Role', response.data.role);
+                localStorage.setItem('UserName', encryptedUserName );
+                localStorage.setItem('Token', encryptedToken);
+                localStorage.setItem('Role', encryptedRole);
                 localStorage.setItem('KisiImageUrl', response.data.kisiImageUrl);
 
                 // Kullanıcının rolüne göre yönlendirme yap

@@ -1,41 +1,25 @@
-﻿<!DOCTYPE html>
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>SonKoç - Kurum</title>
     <meta content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
           name="viewport" />
-    <link rel="icon"
-          src="~/images/logoicon.jpg"
-          type="image/x-icon" />
+
+    <link rel="shortcut icon" href="~/images/logoicon.jpg" />
   
-    <!-- Fonts and icons -->
-    <script src="kurumassets/js/plugin/webfont/webfont.min.js"></script>
-    <script>
-        WebFont.load({
-            google: { families: ["Public Sans:300,400,500,600,700"] },
-            custom: {
-                families: [
-                    "Font Awesome 5 Solid",
-                    "Font Awesome 5 Regular",
-                    "Font Awesome 5 Brands",
-                    "simple-line-icons",
-                ],
-                urls: ["kurumassets/css/fonts.min.css"],
-            },
-            active: function () {
-                sessionStorage.fonts = true;
-            },
-        });
-    </script>
+
 
     <!-- CSS Files -->
-    <link rel="stylesheet" href="kurumassets/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="kurumassets/css/plugins.min.css" />
-    <link rel="stylesheet" href="kurumassets/css/kaiadmin.min.css" />
-
-    <!-- CSS Just for demo purpose, don't include it in your project -->
-    <link rel="stylesheet" href="kurumassets/css/demo.css" />
+   
+    <link rel="stylesheet" href="~/kurumassets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/kurumassets/css/plugins.min.css" />
+    <link rel="stylesheet" href="~/kurumassets/css/kaiadmin.min.css" />
+    <link rel="stylesheet" href="~/kurumassets/css/demo.css" />
 </head>
 <body>
     <div class="wrapper">
@@ -44,8 +28,8 @@
             <div class="sidebar-logo">
                 <!-- Logo Header -->
                 <div class="logo-header" data-background-color="dark">
-                    <a href="index.html" class="logo">
-                        <img src="~/images/hazìr-01.svg" 
+                    <a href="/Kurum/Index" class="logo">
+                        <img src="~/images/hazìr-01.png"
                              alt="navbar brand"
                              class="navbar-brand"
                              height="180" />
@@ -68,85 +52,16 @@
                 <div class="sidebar-content">
                     <ul class="nav nav-secondary">
                         <li class="nav-item active">
-                            <a data-bs-toggle="collapse"
-                               href="#dashboard"
-                               class="collapsed"
-                               aria-expanded="false">
-                                <i class="fas fa-home"></i>
-                                <p>Dashboard</p>
-                                <span class="caret"></span>
+                            <a class="nav-link" asp-action="Index" asp-controller="Kurum">
+                                <i class="ti-home"></i>
+                                <span>Yönetim Paneli</span>
                             </a>
-                            <div class="collapse" id="dashboard">
-                                <ul class="nav nav-collapse">
-                                    <li>
-                                        <a href="../demo1/index.html">
-                                            <span class="sub-item">Dashboard 1</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
                         </li>
-                        <li class="nav-section">
-                            <span class="sidebar-mini-icon">
-                                <i class="fa fa-ellipsis-h"></i>
-                            </span>
-                            <h4 class="text-section">Components</h4>
-                        </li>
-                        <li class="nav-item">
-                            <a data-bs-toggle="collapse" href="#base">
-                                <i class="fas fa-layer-group"></i>
-                                <p>Base</p>
-                                <span class="caret"></span>
+                        <li class="nav-item active">
+                            <a class="nav-link" asp-action="Ogrenciler" asp-controller="Kurum">
+                                <i class="ti-dashboard"></i>
+                                <span>Öğrenciler</span>
                             </a>
-                            <div class="collapse" id="base">
-                                <ul class="nav nav-collapse">
-                                    <li>
-                                        <a href="components/avatars.html">
-                                            <span class="sub-item">Avatars</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="components/buttons.html">
-                                            <span class="sub-item">Buttons</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="components/gridsystem.html">
-                                            <span class="sub-item">Grid System</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="components/panels.html">
-                                            <span class="sub-item">Panels</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="components/notifications.html">
-                                            <span class="sub-item">Notifications</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="components/sweetalert.html">
-                                            <span class="sub-item">Sweet Alert</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="components/font-awesome-icons.html">
-                                            <span class="sub-item">Font Awesome Icons</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="components/simple-line-icons.html">
-                                            <span class="sub-item">Simple Line Icons</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="components/typography.html">
-                                            <span class="sub-item">Typography</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
                         </li>
                     </ul>
                 </div>
@@ -159,8 +74,8 @@
                 <div class="main-header-logo">
                     <!-- Logo Header -->
                     <div class="logo-header" data-background-color="dark">
-                        <a href="index.html" class="logo">
-                            <img src="assets/img/kaiadmin/logo_light.svg"
+                        <a asp-controller="Kurum" asp-action="Index" class="logo">
+                            <img src="~/images/hazir-01.svg"
                                  alt="navbar brand"
                                  class="navbar-brand"
                                  height="20" />
@@ -197,13 +112,6 @@
                                     <i class="fa fa-search"></i>
                                 </a>
                                 <ul class="dropdown-menu dropdown-search animated fadeIn">
-                                    <form class="navbar-left navbar-form nav-search">
-                                        <div class="input-group">
-                                            <input type="text"
-                                                   placeholder="Search ..."
-                                                   class="form-control" />
-                                        </div>
-                                    </form>
                                 </ul>
                             </li>
                             <li class="nav-item topbar-icon dropdown hidden-caret">
@@ -263,7 +171,7 @@
                                     aria-labelledby="notifDropdown">
                                     <li>
                                         <div class="dropdown-title">
-                                            You have 4 new notification
+                                            You have 4 new notifications
                                         </div>
                                     </li>
                                     <li>
@@ -365,26 +273,26 @@
                                     <div class="avatar-sm">
                                         <img src="~/images/logo.jpg"
                                              alt="..."
+                                             id="KisiImageUrl"
                                              class="avatar-img rounded-circle" />
                                     </div>
                                     <span class="profile-username">
                                         <span class="op-7">Merhaba,</span>
-                                        <span class="fw-bold">UserName</span>
+                                        <span class="fw-bold" id="UserName">UserName</span>
                                     </span>
                                 </a>
                                 <ul class="dropdown-menu dropdown-user animated fadeIn">
                                     <div class="dropdown-user-scroll scrollbar-outer">
                                     <li>
                                         <div class="user-box">
-                                           
                                             <div class="avatar-lg">
                                                 <img src="~/images/logo.jpg"
                                                      alt="image profile"
+                                                     id="KisiImageUrlDropdown"
                                                      class="avatar-img rounded" />
                                             </div>
                                             <div class="u-text">
-                                                <h4>Username</h4>
-                                                <p class="text-muted">hello@example.com</p>
+                                                <h4 id="UserNameDropdown">Username</h4>
                                                 <a href="profile.html"
                                                    class="btn btn-xs btn-secondary btn-sm">View Profile</a>
                                             </div>
@@ -398,7 +306,7 @@
                                         <div class="dropdown-divider"></div>
                                         <a class="dropdown-item" href="#">Account Setting</a>
                                         <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="#">Logout</a>
+                                        <a class="dropdown-item" href="#" onclick="logout()">Çıkış Yap</a>
                                     </li>
                     </div>
                     </ul>
@@ -411,47 +319,69 @@
         <div class="container-fluid">
                 @RenderBody()
         </div>
-
-
+    </div>
     </div>
 
+    <link href="~/assets/css/font-awesome.min.css" rel="stylesheet" />
+    <script src="~/js/logout.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
-    <!-- End Custom template -->
-    </div>
-    <!--   Core JS Files   -->
-    <script src="kurumassets/js/core/jquery-3.7.1.min.js"></script>
-    <script src="kurumassets/js/core/popper.min.js"></script>
-    <script src="kurumassets/js/core/bootstrap.min.js"></script>
-
-    <!-- jQuery Scrollbar -->
-    <script src="kurumassets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
-
-    <!-- Chart JS -->
-    <script src="kurumassets/js/plugin/chart.js/chart.min.js"></script>
-
-    <!-- jQuery Sparkline -->
-    <script src="kurumassets/js/plugin/jquery.sparkline/jquery.sparkline.min.js"></script>
-
-    <!-- Chart Circle -->
-    <script src="kurumassets/js/plugin/chart-circle/circles.min.js"></script>
-
-    <!-- Datatables -->
-    <script src="kurumassets/js/plugin/datatables/datatables.min.js"></script>
-
-    <!-- Bootstrap Notify -->
-    <script src="kurumassets/js/plugin/bootstrap-notify/bootstrap-notify.min.js"></script>
-
-
-    <!-- Sweet Alert -->
-    <script src="kurumassets/js/plugin/sweetalert/sweetalert.min.js"></script>
-
-    <!-- Kaiadmin JS -->
-    <script src="kurumassets/js/kaiadmin.min.js"></script>
-
-    <!-- Kaiadmin DEMO methods, don't include it in your project! -->
-    <script src="kurumassets/js/setting-demo.js"></script>
-    <script src="kurumassets/js/demo.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/5.0.12/signalr.min.js"></script>
+    <link href="~/assets/css/themify-icons.css" rel="stylesheet" />
+    <script src="~/kurumassets/js/core/jquery-3.7.1.min.js"></script>
+    <script src="~/kurumassets/js/core/popper.min.js"></script>
+    <script src="~/kurumassets/js/core/bootstrap.min.js"></script>
+    <script src="~/kurumassets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
+    <script src="~/kurumassets/js/plugin/chart.js/chart.min.js"></script>
+    <script src="~/kurumassets/js/plugin/jquery.sparkline/jquery.sparkline.min.js"></script>
+    <script src="~/kurumassets/js/plugin/chart-circle/circles.min.js"></script>
+    <script src="~/kurumassets/js/plugin/datatables/datatables.min.js"></script>
+    <script src="~/kurumassets/js/plugin/bootstrap-notify/bootstrap-notify.min.js"></script>
+    <link href="~/assets/css/font-awesome.min.css" rel="stylesheet" />
+    <script src="~/kurumassets/js/plugin/sweetalert/sweetalert.min.js"></script>
+    <script src="~/kurumassets/js/kaiadmin.min.js"></script>
+    <script src="~/kurumassets/js/setting-demo.js"></script>
+    <script src="~/kurumassets/js/demo.js"></script>
     <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var secretKey = "SKSecretKey";
+            var userName = localStorage.getItem('UserName');
+            var bytes = CryptoJS.AES.decrypt(userName, secretKey);
+            var decryptedUserName = bytes.toString(CryptoJS.enc.Utf8);
+            var kisiImageUrl = localStorage.getItem('KisiImageUrl');
+
+            // Verileri HTML elementlerine yerleştir
+            if (decryptedUserName) {
+                var userNameElement = document.getElementById('UserName');
+                var userNameDropdownElement = document.getElementById('UserNameDropdown');
+                if (userNameElement) {
+                    userNameElement.textContent = decryptedUserName;
+                }
+                if (userNameDropdownElement) {
+                    userNameDropdownElement.textContent = decryptedUserName;
+                }
+            }
+
+            // Image URL null ise varsayılan resim URL'sini kullan
+            var defaultImageUrl = "http://localhost:6079/images/Logo.jpg";
+            if (!kisiImageUrl || kisiImageUrl.trim() === "") {
+                kisiImageUrl = defaultImageUrl;
+            }
+
+            var kisiImageUrlElement = document.getElementById('KisiImageUrl');
+            var kisiImageUrlDropdownElement = document.getElementById('KisiImageUrlDropdown');
+            if (kisiImageUrlElement) {
+                kisiImageUrlElement.src = kisiImageUrl;
+            }
+            if (kisiImageUrlDropdownElement) {
+                kisiImageUrlDropdownElement.src = kisiImageUrl;
+            }
+        });
+
+
+
+      
         $("#lineChart").sparkline([102, 109, 120, 99, 110, 105, 115], {
             type: "line",
             height: "70",
@@ -477,6 +407,40 @@
             lineWidth: "2",
             lineColor: "#ffa534",
             fillColor: "rgba(255, 165, 52, .14)",
+        });
+
+        const connection = new signalR.HubConnectionBuilder()
+            .withUrl("http://localhost:56459/SonKoc-Chat")
+            .withAutomaticReconnect()
+            .build();
+
+        connection.start()
+            .then(() => {
+
+
+                var user = localStorage.getItem('TabloID');
+                var tabloID = parseInt(user, 10);
+                connectToHub(tabloID);
+            })
+            .catch(err => {
+                console.error("SignalR bağlantı hatası: ", err.toString());
+            });
+
+
+
+        function connectToHub(tabloID) {
+            connection.invoke("Connect", tabloID)
+                .catch(err => console.error("Connect fonksiyonunu çağırma hatası: ", err.toString()));
+        }
+
+        connection.on("Messages", function (message) {
+            console.log("Yeni mesaj geldi:", message);
+            newMessage(message);
+        });
+
+        connection.on("Users", function (user) {
+
+            userStatus(user);
         });
     </script>
 </body>

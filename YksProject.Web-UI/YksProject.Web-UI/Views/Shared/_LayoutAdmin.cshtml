@@ -186,19 +186,24 @@
 
 </html>
 
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/5.0.12/signalr.min.js"></script>
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-        // LocalStorage'dan verileri al
+        var secretKey = "SKSecretKey";
         var userName = localStorage.getItem('UserName');
+        var bytes = CryptoJS.AES.decrypt(userName, secretKey);
+        var decryptedUserName = bytes.toString(CryptoJS.enc.Utf8);
+
         var kisiImageUrl = localStorage.getItem('KisiImageUrl');
 
         // Verileri HTML elementlerine yerleştir
-        if (userName) {
+        if (decryptedUserName) {
             var userNameElement = document.getElementById('userName');
             if (userNameElement) {
-                userNameElement.textContent = userName;
+                userNameElement.textContent = decryptedUserName;
             }
         }
         if (kisiImageUrl) {
