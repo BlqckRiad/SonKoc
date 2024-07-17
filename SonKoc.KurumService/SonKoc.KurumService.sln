@@ -1,0 +1,58 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34511.84
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ApiConsume", "ApiConsume", "{0122F9E7-B477-4DC2-AB03-BEB04F9D3D13}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KurumService.EntityLayer", "ApiConsume\KurumService.EntityLayer\KurumService.EntityLayer.csproj", "{88D57B52-FD4E-4C68-BD12-DBF47F26EDA9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KurumService.BusinessLayer", "ApiConsume\KurumService.BusinessLayer\KurumService.BusinessLayer.csproj", "{E63C8A0F-A7B4-45EC-8EF4-24E82571AD4C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KurumService.DtoLayer", "ApiConsume\KurumService.DtoLayer\KurumService.DtoLayer.csproj", "{3EA20A62-EB01-4D2F-9C54-2F603300F628}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KurumService.DataAccessLayer", "ApiConsume\KurumService.DataAccessLayer\KurumService.DataAccessLayer.csproj", "{DC2C40C4-4A3D-4768-9642-0A5BCFF64F95}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KurumService.WebApi", "ApiConsume\KurumService.WebApi\KurumService.WebApi.csproj", "{A7B3EF21-DA04-433B-B558-361788D43176}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{88D57B52-FD4E-4C68-BD12-DBF47F26EDA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88D57B52-FD4E-4C68-BD12-DBF47F26EDA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88D57B52-FD4E-4C68-BD12-DBF47F26EDA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88D57B52-FD4E-4C68-BD12-DBF47F26EDA9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E63C8A0F-A7B4-45EC-8EF4-24E82571AD4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E63C8A0F-A7B4-45EC-8EF4-24E82571AD4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E63C8A0F-A7B4-45EC-8EF4-24E82571AD4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E63C8A0F-A7B4-45EC-8EF4-24E82571AD4C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3EA20A62-EB01-4D2F-9C54-2F603300F628}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3EA20A62-EB01-4D2F-9C54-2F603300F628}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3EA20A62-EB01-4D2F-9C54-2F603300F628}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3EA20A62-EB01-4D2F-9C54-2F603300F628}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC2C40C4-4A3D-4768-9642-0A5BCFF64F95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC2C40C4-4A3D-4768-9642-0A5BCFF64F95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC2C40C4-4A3D-4768-9642-0A5BCFF64F95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC2C40C4-4A3D-4768-9642-0A5BCFF64F95}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7B3EF21-DA04-433B-B558-361788D43176}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7B3EF21-DA04-433B-B558-361788D43176}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7B3EF21-DA04-433B-B558-361788D43176}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7B3EF21-DA04-433B-B558-361788D43176}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{88D57B52-FD4E-4C68-BD12-DBF47F26EDA9} = {0122F9E7-B477-4DC2-AB03-BEB04F9D3D13}
+		{E63C8A0F-A7B4-45EC-8EF4-24E82571AD4C} = {0122F9E7-B477-4DC2-AB03-BEB04F9D3D13}
+		{3EA20A62-EB01-4D2F-9C54-2F603300F628} = {0122F9E7-B477-4DC2-AB03-BEB04F9D3D13}
+		{DC2C40C4-4A3D-4768-9642-0A5BCFF64F95} = {0122F9E7-B477-4DC2-AB03-BEB04F9D3D13}
+		{A7B3EF21-DA04-433B-B558-361788D43176} = {0122F9E7-B477-4DC2-AB03-BEB04F9D3D13}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {53660843-492C-45BB-8A92-30183C2931F3}
+	EndGlobalSection
+EndGlobal
