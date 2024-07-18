@@ -57,7 +57,7 @@ namespace YksProject.YksApi.Controllers
                    model.KisiPassword = SifrelenmisVeri;
              }
             model.OlusturulmaTarihi = DateTime.Now;
-            model.OlusturanKisiID = 1;
+            model.OlusturanKisiID = 0;
             model.RolID = 2;
                _kisiService.TAdd(model);
                return Ok();

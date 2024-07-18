@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace YksProject.EntityLayer.Concrete
+namespace KurumService.EntityLayer.Concrete
 {
     public class Kurum
     {
@@ -18,12 +18,14 @@ namespace YksProject.EntityLayer.Concrete
         public int KurumImageID { get; set; }
         public int KurumOgrenciSayisi { get; set; }
         public int KurumMaxOgrenciLimiti { get; set; }
-        public int KurumTelNo {  get; set; }
-        public int KurumSahibiTelNo {  get; set; }
-        public string KurumSahibiEmail {  get; set; }
-        public string KurumWebSiteUrl {  get; set; }
-        public string KurumInstaKullaniciAdi {  get; set; }
+        public int KurumTelNo { get; set; }
+        public int KurumSahibiTelNo { get; set; }
+        public string KurumSahibiEmail { get; set; }
+        public string KurumWebSiteUrl { get; set; }
+        public string KurumInstaKullaniciAdi { get; set; }
+
         public int KurumTipiID { get; set; } // 1 ise : Dershane , 2 ise koç-öğretmen
+
         //Giriş Yaparken Kullanılacak !!
         public string KurumEmail { get; set; }
         public string KurumPassword { get; set; }

@@ -28,6 +28,10 @@ namespace YksProject.EntityLayer.Concrete
         public string? KisiImageUrl { get; set; }
 
         public bool UserOnlineMi { get; set; }
+        public int UserToplamGirisSayisi {  get; set; }
+        public DateTime UserSonGirisTarihi { get; set; }
+        public DateTime UserSonCikisTarihi { get; set; }
+
         public bool KisiKurumSahibiMi {get;set; } =false;
 
         public int KisiIlgiliKurumID { get; set; }

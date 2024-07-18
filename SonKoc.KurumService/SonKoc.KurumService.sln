@@ -5,15 +5,15 @@ VisualStudioVersion = 17.8.34511.84
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ApiConsume", "ApiConsume", "{0122F9E7-B477-4DC2-AB03-BEB04F9D3D13}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KurumService.EntityLayer", "ApiConsume\KurumService.EntityLayer\KurumService.EntityLayer.csproj", "{88D57B52-FD4E-4C68-BD12-DBF47F26EDA9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KurumService.EntityLayer", "ApiConsume\KurumService.EntityLayer\KurumService.EntityLayer.csproj", "{88D57B52-FD4E-4C68-BD12-DBF47F26EDA9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KurumService.BusinessLayer", "ApiConsume\KurumService.BusinessLayer\KurumService.BusinessLayer.csproj", "{E63C8A0F-A7B4-45EC-8EF4-24E82571AD4C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KurumService.BusinessLayer", "ApiConsume\KurumService.BusinessLayer\KurumService.BusinessLayer.csproj", "{E63C8A0F-A7B4-45EC-8EF4-24E82571AD4C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KurumService.DtoLayer", "ApiConsume\KurumService.DtoLayer\KurumService.DtoLayer.csproj", "{3EA20A62-EB01-4D2F-9C54-2F603300F628}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KurumService.DtoLayer", "ApiConsume\KurumService.DtoLayer\KurumService.DtoLayer.csproj", "{3EA20A62-EB01-4D2F-9C54-2F603300F628}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KurumService.DataAccessLayer", "ApiConsume\KurumService.DataAccessLayer\KurumService.DataAccessLayer.csproj", "{DC2C40C4-4A3D-4768-9642-0A5BCFF64F95}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KurumService.DataAccessLayer", "ApiConsume\KurumService.DataAccessLayer\KurumService.DataAccessLayer.csproj", "{DC2C40C4-4A3D-4768-9642-0A5BCFF64F95}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KurumService.WebApi", "ApiConsume\KurumService.WebApi\KurumService.WebApi.csproj", "{A7B3EF21-DA04-433B-B558-361788D43176}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KurumService.WebApi", "ApiConsume\KurumService.WebApi\KurumService.WebApi.csproj", "{A7B3EF21-DA04-433B-B558-361788D43176}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

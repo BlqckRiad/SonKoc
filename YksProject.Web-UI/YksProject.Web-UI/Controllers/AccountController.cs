@@ -44,92 +44,196 @@ namespace YksProject.Web_UI.Controllers
         [HttpPost]
         public async Task<IActionResult> Login([FromBody] LoginDto model)
         {
-            var input = model.UserNameOrEmail;
-            var client = _clientFactory.CreateClient();
-            var apiURL = IsEmail(input) ? "http://localhost:3798/api/UserLoginRegister/loginWithEmail" : "http://localhost:3798/api/UserLoginRegister/loginWithUserName";
-
-            var jsonContent = JsonConvert.SerializeObject(model);
-            var httpContent = new StringContent(jsonContent, Encoding.UTF8, "application/json");
-            var response = await client.PostAsync(apiURL, httpContent);
-
-            if (response.IsSuccessStatusCode)
+            
+            var client2 = _clientFactory.CreateClient();
+            var apiUrl2 = "https://localhost:44346/api/KurumLogin/LoginYapanKurumMu";
+            var datalogin = new UserNameOrEmailDto();
+            datalogin.usernameoremail = model.UserNameOrEmail;
+            var jsonContent2 = JsonConvert.SerializeObject(datalogin);
+            var httpContent2 = new StringContent(jsonContent2, Encoding.UTF8, "application/json");
+            var response2 = await client2.PostAsync(apiUrl2, httpContent2);
+            if (response2.IsSuccessStatusCode)
             {
-                
-                var responseContent = await response.Content.ReadAsStringAsync();
-                var responseObject = JsonConvert.DeserializeObject<TokenValidateDto>(responseContent);
-                if(responseObject.KisiImageUrl == null)
-                {
-                    responseObject.KisiImageUrl = "http://localhost:6079/images/logo.jpg";
-                }
-                if(responseObject.KisiImageUrl == "")
-                {
-                    responseObject.KisiImageUrl = "http://localhost:6079/images/logo.jpg";
-                }
-                try
-                {
-                    // Mevcut oturumu sonlandır
-                    await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+                var input = model.UserNameOrEmail;
+                var client = _clientFactory.CreateClient();
+                var apiURL = IsEmail(input) ? "https://localhost:44346/api/KurumLogin/loginWithEmail" : "https://localhost:44346/api/KurumLogin/loginWithUserName";
 
-                    var claims = new List<Claim>();
+                var jsonContent = JsonConvert.SerializeObject(model);
+                var httpContent = new StringContent(jsonContent, Encoding.UTF8, "application/json");
+                var response = await client.PostAsync(apiURL, httpContent);
 
-                    if (!string.IsNullOrEmpty(responseObject.UserName))
-                        claims.Add(new Claim(ClaimTypes.Name, responseObject.UserName));
+                if (response.IsSuccessStatusCode)
+                {
 
-                    
+                    var responseContent = await response.Content.ReadAsStringAsync();
+                    var responseObject = JsonConvert.DeserializeObject<TokenValidateDto>(responseContent);
+                    if (responseObject.KisiImageUrl == null)
+                    {
+                        responseObject.KisiImageUrl = "http://localhost:6079/images/logo.jpg";
+                    }
+                    if (responseObject.KisiImageUrl == "")
+                    {
+                        responseObject.KisiImageUrl = "http://localhost:6079/images/logo.jpg";
+                    }
+                    try
+                    {
+                        // Mevcut oturumu sonlandır
+                        await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+
+                        var claims = new List<Claim>();
+
+                        if (!string.IsNullOrEmpty(responseObject.UserName))
+                            claims.Add(new Claim(ClaimTypes.Name, responseObject.UserName));
+
+
                         claims.Add(new Claim("TabloID", responseObject.TabloID.ToString()));
 
-                    if (!string.IsNullOrEmpty(responseObject.Token))
-                        claims.Add(new Claim("Token", responseObject.Token));
+                        if (!string.IsNullOrEmpty(responseObject.Token))
+                            claims.Add(new Claim("Token", responseObject.Token));
 
-                    if (!string.IsNullOrEmpty(responseObject.KisiImageUrl))
-                        claims.Add(new Claim("KisiImageUrl", responseObject.KisiImageUrl));
+                        if (!string.IsNullOrEmpty(responseObject.KisiImageUrl))
+                            claims.Add(new Claim("KisiImageUrl", responseObject.KisiImageUrl));
 
-                    if (!string.IsNullOrEmpty(responseObject.Role))
-                        claims.Add(new Claim(ClaimTypes.Role, responseObject.Role));
+                        if (!string.IsNullOrEmpty(responseObject.Role))
+                            claims.Add(new Claim(ClaimTypes.Role, responseObject.Role));
 
-                    var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+                        var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
 
-                    var authProperties = new AuthenticationProperties
-                    {
-                        AllowRefresh = true,
-                        ExpiresUtc = DateTimeOffset.UtcNow.AddDays(3),
-                        IsPersistent = true,
-                        IssuedUtc = DateTimeOffset.UtcNow,
-                    };
-
-                    await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity), authProperties);
-
-
-                    return Json(new
-                    {
-                        success = true,
-                        data = new
+                        var authProperties = new AuthenticationProperties
                         {
-                            responseObject.TabloID,
-                            responseObject.UserName,
-                            responseObject.Token,
-                            responseObject.Role,
-                            responseObject.KisiImageUrl
-                        }
-                    });
-                }
-                catch (Exception ex)
-                {
-                    // Hata durumunda mevcut oturumu sonlandır
-                    await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+                            AllowRefresh = true,
+                            ExpiresUtc = DateTimeOffset.UtcNow.AddDays(3),
+                            IsPersistent = true,
+                            IssuedUtc = DateTimeOffset.UtcNow,
+                        };
 
-                    return StatusCode(StatusCodes.Status500InternalServerError, new
+                        await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity), authProperties);
+
+
+                        return Json(new
+                        {
+                            success = true,
+                            data = new
+                            {
+                                responseObject.TabloID,
+                                responseObject.UserName,
+                                responseObject.Token,
+                                responseObject.Role,
+                                responseObject.KisiImageUrl
+                            }
+                        });
+                    }
+                    catch (Exception ex)
                     {
-                        success = false,
-                        message = "Oturum açma işlemi sırasında bir hata oluştu.",
-                        error = ex.Message
-                    });
+                        // Hata durumunda mevcut oturumu sonlandır
+                        await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+
+                        return StatusCode(StatusCodes.Status500InternalServerError, new
+                        {
+                            success = false,
+                            message = "Oturum açma işlemi sırasında bir hata oluştu.",
+                            error = ex.Message
+                        });
+                    }
                 }
+                else
+                {
+                    var responseContent = await response.Content.ReadAsStringAsync();
+                    return BadRequest(new { success = false, message = responseContent });
+                }
+
+
+
             }
             else
             {
-                var responseContent = await response.Content.ReadAsStringAsync();
-                return BadRequest(new { success = false, message = responseContent });
+                var input = model.UserNameOrEmail;
+                var client = _clientFactory.CreateClient();
+                var apiURL = IsEmail(input) ? "http://localhost:3798/api/UserLoginRegister/loginWithEmail" : "http://localhost:3798/api/UserLoginRegister/loginWithUserName";
+
+                var jsonContent = JsonConvert.SerializeObject(model);
+                var httpContent = new StringContent(jsonContent, Encoding.UTF8, "application/json");
+                var response = await client.PostAsync(apiURL, httpContent);
+
+                if (response.IsSuccessStatusCode)
+                {
+
+                    var responseContent = await response.Content.ReadAsStringAsync();
+                    var responseObject = JsonConvert.DeserializeObject<TokenValidateDto>(responseContent);
+                    if (responseObject.KisiImageUrl == null)
+                    {
+                        responseObject.KisiImageUrl = "http://localhost:6079/images/logo.jpg";
+                    }
+                    if (responseObject.KisiImageUrl == "")
+                    {
+                        responseObject.KisiImageUrl = "http://localhost:6079/images/logo.jpg";
+                    }
+                    try
+                    {
+                        // Mevcut oturumu sonlandır
+                        await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+
+                        var claims = new List<Claim>();
+
+                        if (!string.IsNullOrEmpty(responseObject.UserName))
+                            claims.Add(new Claim(ClaimTypes.Name, responseObject.UserName));
+
+
+                        claims.Add(new Claim("TabloID", responseObject.TabloID.ToString()));
+
+                        if (!string.IsNullOrEmpty(responseObject.Token))
+                            claims.Add(new Claim("Token", responseObject.Token));
+
+                        if (!string.IsNullOrEmpty(responseObject.KisiImageUrl))
+                            claims.Add(new Claim("KisiImageUrl", responseObject.KisiImageUrl));
+
+                        if (!string.IsNullOrEmpty(responseObject.Role))
+                            claims.Add(new Claim(ClaimTypes.Role, responseObject.Role));
+
+                        var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+
+                        var authProperties = new AuthenticationProperties
+                        {
+                            AllowRefresh = true,
+                            ExpiresUtc = DateTimeOffset.UtcNow.AddDays(3),
+                            IsPersistent = true,
+                            IssuedUtc = DateTimeOffset.UtcNow,
+                        };
+
+                        await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity), authProperties);
+
+
+                        return Json(new
+                        {
+                            success = true,
+                            data = new
+                            {
+                                responseObject.TabloID,
+                                responseObject.UserName,
+                                responseObject.Token,
+                                responseObject.Role,
+                                responseObject.KisiImageUrl
+                            }
+                        });
+                    }
+                    catch (Exception ex)
+                    {
+                        // Hata durumunda mevcut oturumu sonlandır
+                        await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+
+                        return StatusCode(StatusCodes.Status500InternalServerError, new
+                        {
+                            success = false,
+                            message = "Oturum açma işlemi sırasında bir hata oluştu.",
+                            error = ex.Message
+                        });
+                    }
+                }
+                else
+                {
+                    var responseContent = await response.Content.ReadAsStringAsync();
+                    return BadRequest(new { success = false, message = responseContent });
+                }
             }
         }
 

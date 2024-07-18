@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SonKocApp.EntityLayer.Concrete
+namespace KurumService.EntityLayer.Concrete
 {
     public class Kisi
     {
@@ -29,6 +29,7 @@ namespace SonKocApp.EntityLayer.Concrete
         public int UserToplamGirisSayisi { get; set; }
         public DateTime UserSonGirisTarihi { get; set; }
         public DateTime UserSonCikisTarihi { get; set; }
+
         public bool KisiKurumSahibiMi { get; set; } = false;
 
         public int KisiIlgiliKurumID { get; set; }

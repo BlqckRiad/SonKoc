@@ -22,7 +22,9 @@ namespace SonKocApp.ChatApi.Hubs
             Users.Add(Context.ConnectionId,id);
             Kisi? user = _kisiService.TGetByid(id);
             if (user != null) {
-                user.UserOnlineMi = true; 
+                user.UserOnlineMi = true;
+                user.UserSonGirisTarihi = DateTime.Now;
+                user.UserToplamGirisSayisi = user.UserToplamGirisSayisi + 1;
                 _kisiService.TUpdate(user);
             }
             await Clients.All.SendAsync("Users", user);
@@ -36,6 +38,7 @@ namespace SonKocApp.ChatApi.Hubs
                 if (user != null)
                 {
                     user.UserOnlineMi = false;
+                    user.UserSonCikisTarihi= DateTime.Now;
                     _kisiService.TUpdate(user);
 
                     await Clients.All.SendAsync("Users", user);

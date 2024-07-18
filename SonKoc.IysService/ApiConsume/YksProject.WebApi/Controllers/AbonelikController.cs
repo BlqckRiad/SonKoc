@@ -21,6 +21,7 @@ namespace YksProject.YksApi.Controllers
         public IActionResult ListAbonelik()
         {
             var result = _abonelikService.TGetList();
+            
             return Ok(result);
         }
         [HttpDelete("{id}")]
@@ -46,6 +47,7 @@ namespace YksProject.YksApi.Controllers
         public IActionResult GetAbonelik(int id)
         {
             var result = _abonelikService.TGetByid(id);
+            
             return Ok(result);
         }
         //https://www.youtube.com/watch?v=Ke50yA-rdrM
