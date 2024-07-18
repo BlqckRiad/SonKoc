@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KurumService.EntityLayer.Concrete
+namespace SonKocApp.EntityLayer.Concrete
 {
     public class Kurum
     {
@@ -23,18 +23,17 @@ namespace KurumService.EntityLayer.Concrete
         public string KurumSahibiEmail { get; set; }
         public string KurumWebSiteUrl { get; set; }
         public string KurumInstaKullaniciAdi { get; set; }
+        public bool KurumOnlineMi { get; set; }
+        public DateTime KurumSonGirisTarihi {  get; set; }
+        public DateTime KurumSonCikisTarihi {  get; set; }
+
+        public int KurumToplamGiris { get; set; }
 
         public int KurumTipiID { get; set; } // 1 ise : Dershane , 2 ise koç-öğretmen
 
         //Giriş Yaparken Kullanılacak !!
         public string KurumEmail { get; set; }
         public string KurumPassword { get; set; }
-
-        public bool KurumOnlineMi { get; set; }
-        public DateTime KurumSonGirisTarihi { get; set; }
-        public DateTime KurumSonCikisTarihi { get; set; }
-
-        public int KurumToplamGiris { get; set; }
 
 
         /// <summary>

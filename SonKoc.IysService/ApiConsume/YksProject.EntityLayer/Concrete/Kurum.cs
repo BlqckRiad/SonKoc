@@ -28,7 +28,11 @@ namespace YksProject.EntityLayer.Concrete
         public string KurumEmail { get; set; }
         public string KurumPassword { get; set; }
 
+        public bool KurumOnlineMi { get; set; }
+        public DateTime KurumSonGirisTarihi { get; set; }
+        public DateTime KurumSonCikisTarihi { get; set; }
 
+        public int KurumToplamGiris { get; set; }
         /// <summary>
         /// BaseModel Her Tabloda Olması Gereken İfadeler
         /// </summary>

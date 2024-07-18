@@ -67,6 +67,8 @@ namespace SonKocApp.ChatApi
 
             services.AddScoped<IKisiDal, EfKisiDal>();
             services.AddScoped<IKisiService, KisiManager>();
+            services.AddScoped<IKurumDal, EfKurumDal>();
+            services.AddScoped<IKurumService, KurumManager>();
 
             services.AddCors(options =>
             {

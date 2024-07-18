@@ -17,5 +17,6 @@ namespace SonKocApp.DataAccessLayer.Concrete
 
         public DbSet<Message> Message { get; set; }
         public DbSet<Kisi> Kisi { get; set; }
+        public DbSet<Kurum> Kurum { get; set; }
     }
 }
