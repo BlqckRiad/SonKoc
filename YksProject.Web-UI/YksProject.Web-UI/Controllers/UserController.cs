@@ -10,5 +10,6 @@ namespace YksProject.Web_UI.Controllers
         {
             return View();
         }
+
     }
 }

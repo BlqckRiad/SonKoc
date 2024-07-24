@@ -38,6 +38,7 @@ namespace YksProject.Web_UI.Controllers
         {
             return View();
         }
+
         #endregion
         #region ApiModel
         [HttpPost]
@@ -105,6 +106,33 @@ namespace YksProject.Web_UI.Controllers
             }
             
         }
+
+        [HttpGet]
+        [Route("/Kurum/OgrenciGetByid/{id}")]
+        public async Task<IActionResult> OgrenciGetByid(int id)
+        {
+            var client = _clientFactory.CreateClient();
+
+            // API URL'sini belirtin ve id'yi içine yerleştirin
+            var apiURL = $"https://localhost:44346/api/KurumOgrenci/OgrenciGetWithID?id={id}";
+
+            // HTTP GET isteği yapın
+            var response = await client.GetAsync(apiURL);
+
+            if (response.IsSuccessStatusCode)
+            {
+                // Başarılı bir şekilde veri alındıysa JSON olarak döndür
+                var content = await response.Content.ReadAsStringAsync();
+                var kisi = JsonConvert.DeserializeObject<KurumGetOgrenci>(content);
+                return Ok(kisi);
+            }
+            else
+            {
+                // API'den hata kodu döndüyse hatayı döndür
+                return StatusCode((int)response.StatusCode);
+            }
+        }
+
         #endregion
 
         #region HelperModel

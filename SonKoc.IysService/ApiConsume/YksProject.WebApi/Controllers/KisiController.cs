@@ -63,8 +63,8 @@ namespace YksProject.YksApi.Controllers
                return Ok();
          }
 
-    [HttpGet("{id}")]
-        public IActionResult GetKisi(int id)
+         [HttpGet("{id}")]
+        public IActionResult GetKisiWithID(int id)
         {
             var result = _kisiService.TGetByid(id);
             return Ok(result);

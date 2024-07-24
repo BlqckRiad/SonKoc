@@ -39,5 +39,13 @@ namespace YksProject.DataAccessLayer.Concrete
         public DbSet<AytEaGirisTablosu> AytEaGirisTablosu { get; set; }
         public DbSet<AytSozelGirisTablosu> AytSozelGirisTablosu { get; set; }
         public DbSet<AytYDGirisTablosu> AytYDGirisTablosu { get; set; }
+        public DbSet<HedefGenelTanimlari> HedefGenelTanimlari { get; set; }
+        public DbSet<AytEaHedef> AytEaHedef { get; set; }
+        public DbSet<AytSayHedef> AytSayHedef { get; set; }
+        public DbSet<AytSozelHedef> AytSozelHedef { get; set; }
+        public DbSet<AytYdHedef> AytYdHedef { get; set; }
+        public DbSet<TytHedef> TytHedef { get; set; }
+
+
     }
 }

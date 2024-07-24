@@ -52,6 +52,12 @@ namespace KurumService.WebApi.Controllers
             _kisiService.TAdd(user);
             return Ok();
         }
-       
+        [HttpGet]
+        public IActionResult OgrenciGetWithID(int id)
+        {
+            var result = _kisiService.TGetByid(id);
+            return Ok(result);
+        }
+
     }
 }

@@ -98,6 +98,26 @@ namespace SinavService.SinavApi
             services.AddScoped<IAytDilDal, EfAytDilDal>();
             services.AddScoped<IAytDilService, AytDilManager>();
 
+            services.AddScoped<ITytHedefDal, EfTytHedefDal>();
+            services.AddScoped<ITytHedefService, TytHedefManager>();
+
+            services.AddScoped<IAytSayHedefDal, EfAytSayHedefDal>();
+            services.AddScoped<IAytSayHedefService, AytSayHedefManager>();
+
+            services.AddScoped<IAytSozelHedefDal, EfAytSozelHedefDal>();
+            services.AddScoped<IAytSozelHedefService, AytSozelHedefManager>();
+
+            services.AddScoped<IAytEaHedefDal, EfAytEaHedefDal>();
+            services.AddScoped<IAytEaHedefService, AytEaHedefManager>();
+
+
+            services.AddScoped<IAytYdHedefDal, EfAytYdHedefDal>();
+            services.AddScoped<IAytYdHedefService, AytYdHedefManager>();
+
+            services.AddScoped<IHedefGenelTanimlariDal, EfHedefGenelTanimlariDal>();
+            services.AddScoped<IHedefGenelTanimlariService, HedefGenelTanimlariManager>();
+
+
             services.AddControllers();
 
             // Add SignalR

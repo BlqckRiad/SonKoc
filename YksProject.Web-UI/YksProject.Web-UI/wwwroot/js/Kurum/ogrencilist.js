@@ -32,10 +32,11 @@ function OgrencileriGetir() {
                     student.kisiKullaniciAdi,
                     student.kisiAdi + " " + student.kisiSoyAdi,
 
-                    '<i class="fa fa-pencil" aria-hidden="true" class="icon-cell" onclick="detayliIncele(' + student.tabloID + ')"></i>',
-                    '<i class="fa fa-cog" aria-hidden="true"class="icon-cell" onclick="duzenle(' + student.tabloID + ')"></i>',
-                    '<i class="fa fa-comments-o" aria-hidden="true" class="icon-cell" onclick="mesajGonder(' + student.tabloID + ')"></i>',
-                    '<i class="fa fa-trash" aria-hidden="true" class="icon-cell" onclick="sil(' + student.tabloID + ')"></i>'
+                    '<i class="fa fa-pencil icon-cell" aria-hidden="true" onclick="detayliIncele(' + student.tabloID + ')"></i>',
+                    '<i class="fa fa-cog icon-cell" aria-hidden="true" onclick="duzenle(' + student.tabloID + ')"></i>',
+                    '<i class="fa fa-comments-o icon-cell" aria-hidden="true" onclick="mesajGonder(' + student.tabloID + ')"></i>',
+                    '<i class="fa fa-trash icon-cell" aria-hidden="true" onclick="sil(' + student.tabloID + ')"></i>'
+
                 ]);
             });
 
