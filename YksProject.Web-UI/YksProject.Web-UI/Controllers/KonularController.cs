@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -11,6 +12,7 @@ using YksProject.Web_UI.Models.ViewModel;
 
 namespace YksProject.Web_UI.Controllers
 {
+    [Authorize(Roles ="Admin")]
     public class KonularController : Controller
     {
         private readonly IHttpClientFactory _clientFactory;

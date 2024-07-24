@@ -12,20 +12,40 @@
     // localStorage'dan alınan değeri integer tipine çevirme
     var logoutid = parseInt(logoutid2, 10);
 
+    if (logoutid > 4999999) {
+        $.ajax({
+            type: "GET",
+            url: "/Account/LogoutKurum/" + logoutid,
+            contentType: "application/json",
+            dataType: "json",
+            success: function (result) {
+                // Silme işlemi başarılı olduysa, listedeki sayfaya yönlendir
 
-    $.ajax({
-        type: "GET",
-        url: "/Account/Logout/" + logoutid,
-        contentType: "application/json",
-        dataType: "json",
-        success: function (result) {
-            // Silme işlemi başarılı olduysa, listedeki sayfaya yönlendir
+                localStorage.clear();
+                location.href = "/Home/Index";
+            },
+            error: function (xhr, textStatus, errorThrown) {
+                alert("Çıkış işleminde hata ile karşılaştık");
+            }
+        });
+    } else {
+        $.ajax({
+            type: "GET",
+            url: "/Account/Logout/" + logoutid,
+            contentType: "application/json",
+            dataType: "json",
+            success: function (result) {
+                // Silme işlemi başarılı olduysa, listedeki sayfaya yönlendir
 
-            localStorage.clear();
-            location.href = "/Home/Index";
-        },
-        error: function (xhr, textStatus, errorThrown) {
-            alert("Çıkış işleminde hata ile karşılaştık");
-        }
-    });
+                localStorage.clear();
+                location.href = "/Home/Index";
+            },
+            error: function (xhr, textStatus, errorThrown) {
+                alert("Çıkış işleminde hata ile karşılaştık");
+            }
+        });
+    }
+
+
+   
 }

@@ -125,5 +125,14 @@ namespace KurumService.WebApi.Controllers
             }
             return Ok();
         }
+
+        [HttpPost("logout")]
+        public IActionResult logout([FromBody] LogoutRequest request)
+        {
+            var result = _kurumService.TGetByid(request.Id);
+            result.KurumOnlineMi = false;
+            _kurumService.TUpdate(result);
+            return Ok();
+        }
     }
 }

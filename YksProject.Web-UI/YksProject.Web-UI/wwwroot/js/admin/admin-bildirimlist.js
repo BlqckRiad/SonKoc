@@ -1,5 +1,6 @@
 ﻿$(document).ready(function () {
     var id = localStorage.getItem('TabloID');
+
     DataGetir(id);
 });
 

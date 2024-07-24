@@ -17,7 +17,7 @@ namespace KurumService.WebApi.Service
         public string CreateTokenforOgretmen();
         public string CreateTokenWithGenericStructer(string rolAdi);
 
-        
+        public int GetAge(DateTime birthDate);
 
         public string GetRoleFromToken(string token);
 
@@ -25,7 +25,15 @@ namespace KurumService.WebApi.Service
     }
     public class TokenCreateService : ITokenCreateService
     {
-      
+        public int GetAge(DateTime birthDate)
+        {
+            var today = DateTime.Today;
+            var age = today.Year - birthDate.Year;
+
+            if (birthDate.Date > today.AddYears(-age)) age--;
+
+            return age;
+        }
         public string CreateTokenforUser()
         {
             var bytes = Encoding.UTF8.GetBytes("yks2uygulamamizz");

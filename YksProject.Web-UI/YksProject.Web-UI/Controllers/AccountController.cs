@@ -289,6 +289,32 @@ namespace YksProject.Web_UI.Controllers
                 return StatusCode((int)response.StatusCode, "Logout işlemi başarısız oldu.");
             }
         }
+        [HttpGet]
+        [Route("Account/LogoutKurum/{id}")]
+        public async Task<IActionResult> LogoutKurum(int id)
+        {
+            var client = _clientFactory.CreateClient();
+
+            // API URL'sini belirtin
+            var apiURL = "https://localhost:44346/api/KurumLogin/logout";
+
+            var model = new LogoutRequest();
+            model.Id = id;
+            var jsonContent = JsonConvert.SerializeObject(model);
+            var httpContent = new StringContent(jsonContent, Encoding.UTF8, "application/json");
+            var response = await client.PostAsync(apiURL, httpContent);
+
+            if (response.IsSuccessStatusCode)
+            {
+                await HttpContext.SignOutAsync();
+                return Ok(response);
+            }
+            else
+            {
+                // Hata durumunda uygun bir işlem yapın
+                return StatusCode((int)response.StatusCode, "Logout işlemi başarısız oldu.");
+            }
+        }
 
 
         #endregion
