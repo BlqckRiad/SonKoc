@@ -30,8 +30,11 @@ public class UserLoginRegisterController : ControllerBase
     {
         var userName = model.UserNameOrEmail;
         var result = _kisiService.GetKisiWithUsername(userName);
-       
-        
+        if (result.SilindiMi == true)
+        {
+            return BadRequest("Kurum üyeliği son bulmuştur.");
+        }
+
         if (result != null)
         {
             var kisiRolID = result.RolID;
@@ -80,6 +83,10 @@ public class UserLoginRegisterController : ControllerBase
     {
         var email = model.UserNameOrEmail;
         var result = _kisiService.GetKisiWithEmail(email);
+        if (result.SilindiMi == true)
+        {
+            return BadRequest("Kurum üyeliği son bulmuştur.");
+        }
         var kisiImageUrl = result.KisiImageUrl;
         if (result != null)
         {

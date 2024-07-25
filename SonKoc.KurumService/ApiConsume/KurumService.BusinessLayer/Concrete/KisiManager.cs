@@ -68,6 +68,7 @@ namespace KurumService.BusinessLayer.Concrete
         {
             return _kisiDal.GetList().Where(kisi => kisi.KisiKullaniciAdi.StartsWith(shortusername, StringComparison.OrdinalIgnoreCase));
         }
+        
 
     }
 }

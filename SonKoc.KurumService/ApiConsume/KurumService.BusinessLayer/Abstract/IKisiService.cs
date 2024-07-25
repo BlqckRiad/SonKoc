@@ -9,7 +9,6 @@ namespace KurumService.BusinessLayer.Abstract
 {
     public interface IKisiService : IGenericService<Kisi>
     {
-    
-
+       
     }
 }

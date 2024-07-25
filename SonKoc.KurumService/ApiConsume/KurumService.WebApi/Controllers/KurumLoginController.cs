@@ -28,7 +28,10 @@ namespace KurumService.WebApi.Controllers
         {
             var userName = model.UserNameOrEmail;
             var result = _kurumService.GetKurumWithUsername(userName);
-
+            if(result.SilindiMi == true)
+            {
+                return BadRequest("Kurum üyeliği son bulmuştur.");
+            }
 
             if (result != null)
             {
@@ -73,8 +76,13 @@ namespace KurumService.WebApi.Controllers
         [HttpPost("loginWithEmail")]
         public IActionResult LoginWithEmail(LoginDto model)
         {
+            
             var email = model.UserNameOrEmail;
             var result = _kurumService.GetKurumWithEmail(email);
+            if (result.SilindiMi == true)
+            {
+                return BadRequest("Kurum üyeliği son bulmuştur.");
+            }
             var kisiImageUrl = result.KurumImageUrl;
             if (result != null)
             {

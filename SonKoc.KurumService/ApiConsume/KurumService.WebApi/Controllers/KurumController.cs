@@ -22,6 +22,19 @@ namespace KurumService.WebApi.Controllers
             _kurumService = kurumService;
         }
         [HttpGet]
+        public IActionResult GetKurumIndexData(int kurumid)
+        {
+            var kurum =_kurumService.TGetByid(kurumid);
+            var kurummaxuser =kurum.KurumMaxOgrenciLimiti;
+            var kurumuser = kurum.KurumOgrenciSayisi;
+            var index = new KurumIndexDto();
+            index.KurumMaxUserCount = kurummaxuser; ;
+            index.KurumUserCount = kurumuser;
+
+            return Ok(index);
+        }
+
+        [HttpGet]
         public IActionResult GetAllKurums()
         {
             var result = _kurumService.TGetList().Where(x => x.SilindiMi == false);

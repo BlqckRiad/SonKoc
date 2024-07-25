@@ -58,6 +58,20 @@ namespace KurumService.WebApi.Controllers
             var result = _kisiService.TGetByid(id);
             return Ok(result);
         }
+        [HttpPost]
+        public IActionResult KurumaAitOgrenciSil(KurumaAitOgrenciDto model)
+        {
+            var result = _kisiService.TGetByid(model.KisiID);
+            if(result.KisiIlgiliKurumID == model.KurumID)
+            {
+                result.SilindiMi = true;
+                result.SilinmeTarihi = DateTime.Now;
+                result.SilenKisiID = model.KisiID;
+                _kisiService.TUpdate(result);
+                return Ok();
+            }
+            return BadRequest();
+        }
 
     }
 }
