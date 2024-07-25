@@ -10,5 +10,6 @@ namespace SinavService.BusinessLayer.Abstract
    
     public interface ITytHedefService : IGenericService<TytHedef>
     {
+        public TytHedef GetLatest();
     }
 }

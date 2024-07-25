@@ -10,5 +10,6 @@ namespace SinavService.BusinessLayer.Abstract
    
     public interface IAytSozelHedefService : IGenericService<AytSozelHedef>
     {
+        public AytSozelHedef GetLatest();
     }
 }

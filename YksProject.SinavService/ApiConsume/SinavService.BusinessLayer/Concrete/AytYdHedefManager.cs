@@ -41,5 +41,11 @@ namespace SinavService.BusinessLayer.Concrete
         {
             _sinavDal.Update(entity);
         }
+        public AytYdHedef GetLatest()
+        {
+            return _sinavDal.GetList()
+                            .OrderByDescending(x => x.OlusturulmaTarihi)
+                            .FirstOrDefault();
+        }
     }
 }

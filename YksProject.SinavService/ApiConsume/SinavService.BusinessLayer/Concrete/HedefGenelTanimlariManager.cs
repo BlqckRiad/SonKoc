@@ -41,10 +41,10 @@ namespace SinavService.BusinessLayer.Concrete
         {
             _sinavDal.Update(entity);
         }
-        public HedefGenelTanimlari GetKisiWithUsername(int id)
+        
+        public HedefGenelTanimlari GetHedefWithUserID(int id)
         {
-            return _sinavDal.GetList().FirstOrDefault(x => x.HedefYapanKisiID == id);
+            return _sinavDal.GetList().FirstOrDefault(x=> x.HedefYapanKisiID ==id);
         }
-
     }
 }

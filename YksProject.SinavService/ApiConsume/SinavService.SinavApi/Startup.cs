@@ -14,6 +14,7 @@ using SinavService.BusinessLayer.Concrete;
 using SinavService.DataAccessLayer.Abstract;
 using SinavService.DataAccessLayer.Concrete;
 using SinavService.DataAccessLayer.EntityFramework;
+using SinavService.SinavApi.Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -75,7 +76,7 @@ namespace SinavService.SinavApi
             });
 
             services.AddDbContext<Context>();
-           
+            services.AddScoped<IHelperFunctions, HelperFunctions>();
             
             services.AddScoped<ISinavDal, EfSinavDal>();
             services.AddScoped<ISinavService, SinavManager>();
