@@ -10,5 +10,6 @@ namespace YksProject.DtoLayer.Dtos
     {
         public int TabloID { get; set; }
         public int SilenKisiID { get; set; }
+        public string Token { get; set; }
     }
 }

@@ -46,6 +46,6 @@ namespace YksProject.DataAccessLayer.Concrete
         public DbSet<AytYdHedef> AytYdHedef { get; set; }
         public DbSet<TytHedef> TytHedef { get; set; }
 
-
+        public DbSet<PromoKey> PromoKey { get; set; }
     }
 }

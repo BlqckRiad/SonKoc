@@ -110,6 +110,11 @@ namespace YksProject.WebApi
             services.AddScoped<IBildirimlerDal, EfBildirimlerDal>();
             services.AddScoped<IBildirimlerService, BildirimlerManager>();
 
+
+
+            services.AddScoped<IPromoKeyDal, EfPromoKeyDal>();
+            services.AddScoped<IPromoKeyService, PromoKeyManager>();
+
             services.AddScoped<ITokenCreateService, TokenCreateService>();
 
             services.AddAutoMapper(typeof(Startup));
