@@ -47,5 +47,7 @@ namespace YksProject.DataAccessLayer.Concrete
         public DbSet<TytHedef> TytHedef { get; set; }
 
         public DbSet<PromoKey> PromoKey { get; set; }
+        public DbSet<TamamlanmisKonular> TamamlanmisKonular { get; set; }
+        public DbSet<GununSozu> GununSozu { get; set; }
     }
 }

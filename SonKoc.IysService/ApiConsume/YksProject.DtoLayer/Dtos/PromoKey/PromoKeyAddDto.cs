@@ -11,7 +11,9 @@ namespace YksProject.DtoLayer.Dtos.PromoKey
         public string PromoKod { get; set; }
         public string PromoKodNeİcin { get; set; }
         public int PromoKeyLimit { get; set; }
-        public int PromoKeyKullanimSayisi { get; set; }
+
+        public DateTime PromoKeySonKullanimTarihi { get; set; }
+  
         public int PromoKeyYuzdeKacIndirim { get; set; }
         /// <summary>
         /// BaseModel

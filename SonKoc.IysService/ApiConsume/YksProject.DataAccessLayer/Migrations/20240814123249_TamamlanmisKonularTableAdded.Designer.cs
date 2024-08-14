@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using YksProject.DataAccessLayer.Concrete;
 
 namespace YksProject.DataAccessLayer.Migrations
 {
     [DbContext(typeof(Context))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("20240814123249_TamamlanmisKonularTableAdded")]
+    partial class TamamlanmisKonularTableAdded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -870,42 +872,6 @@ namespace YksProject.DataAccessLayer.Migrations
                     b.HasKey("TabloID");
 
                     b.ToTable("GirilenSinav");
-                });
-
-            modelBuilder.Entity("YksProject.EntityLayer.Concrete.GununSozu", b =>
-                {
-                    b.Property<int>("TabloID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("GuncellenmeTarihi")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("GuncelleyenKisiID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("OlusturanKisiID")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("OlusturulmaTarihi")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("SilenKisiID")
-                        .HasColumnType("int");
-
-                    b.Property<bool>("SilindiMi")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime>("SilinmeTarihi")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Soz")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("TabloID");
-
-                    b.ToTable("GununSozu");
                 });
 
             modelBuilder.Entity("YksProject.EntityLayer.Concrete.HedefGenelTanimlari", b =>

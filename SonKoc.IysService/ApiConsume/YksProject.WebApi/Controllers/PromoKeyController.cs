@@ -29,7 +29,8 @@ namespace YksProject.WebApi.Controllers
             key.OlusturanKisiID=model.OlusturanKisiID;
             key.OlusturulmaTarihi = DateTime.Now;
             key.PromoKeyLimit = model.PromoKeyLimit;
-            key.PromoKeyKullanimSayisi = model.PromoKeyKullanimSayisi;
+            key.PromoKeySonKullanimTarihi = model.PromoKeySonKullanimTarihi;
+            key.PromoKeyKullanimSayisi = 0;
             key.PromoKeyYuzdeKacIndirim = model.PromoKeyYuzdeKacIndirim;
 
             _promokeyservice.TAdd(key);
@@ -72,6 +73,7 @@ namespace YksProject.WebApi.Controllers
             promokey.PromoKeyKullanimSayisi = model.PromoKeyKullanimSayisi;
             promokey.PromoKeyYuzdeKacIndirim = model.PromoKeyYuzdeKacIndirim;
             promokey.GuncelleyenKisiID = model.GuncelleyenKisiID;
+            promokey.PromoKeySonKullanimTarihi = model.PromoKeySonKullanimTarihi;
             promokey.GuncellenmeTarihi = DateTime.Now;
             _promokeyservice.TUpdate(promokey);
             return Ok();
@@ -81,6 +83,12 @@ namespace YksProject.WebApi.Controllers
         {
             var keys = _promokeyservice.TGetList().Where(x=> x.SilindiMi==false);
             return Ok(keys);
+        }
+        [HttpGet]
+        public IActionResult GetPromoKeyWithID(int id)
+        {
+            var key = _promokeyservice.TGetByid(id);
+            return Ok(key);
         }
     }
 }

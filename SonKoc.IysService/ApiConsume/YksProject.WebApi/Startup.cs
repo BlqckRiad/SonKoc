@@ -18,6 +18,7 @@ using YksProject.BusinessLayer.Concrete;
 using YksProject.DataAccessLayer.Abstract;
 using YksProject.DataAccessLayer.Concrete;
 using YksProject.DataAccessLayer.EntityFramework;
+using YksProject.EntityLayer.Concrete;
 using YksProject.WebApi.Service;
 
 namespace YksProject.WebApi
@@ -44,7 +45,8 @@ namespace YksProject.WebApi
                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("yks2uygulamamizz")),
                     ValidateIssuerSigningKey = true,
                     ValidateLifetime = true,
-                    ClockSkew = TimeSpan.Zero
+                    ClockSkew = TimeSpan.Zero,
+           
                     
                 };
             });
@@ -110,10 +112,14 @@ namespace YksProject.WebApi
             services.AddScoped<IBildirimlerDal, EfBildirimlerDal>();
             services.AddScoped<IBildirimlerService, BildirimlerManager>();
 
-
+            services.AddScoped<IGununSozuDal, EfGununSozuDal>();
+            services.AddScoped<IGununSozuService, GununSozuManager>();
 
             services.AddScoped<IPromoKeyDal, EfPromoKeyDal>();
             services.AddScoped<IPromoKeyService, PromoKeyManager>();
+
+            services.AddScoped<ITamamlanmisKonularDal, EfTamamlanmisKonularDal>();
+            services.AddScoped<ITamamlanmisKonularService, TamamlanmisKonularManager>();
 
             services.AddScoped<ITokenCreateService, TokenCreateService>();
 

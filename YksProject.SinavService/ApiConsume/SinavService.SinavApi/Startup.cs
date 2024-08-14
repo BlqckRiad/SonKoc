@@ -119,6 +119,10 @@ namespace SinavService.SinavApi
             services.AddScoped<IHedefGenelTanimlariService, HedefGenelTanimlariManager>();
 
 
+            services.AddScoped<IKisiDal, EfKisiDal>();
+            services.AddScoped<IKisiService, KisiManager>();
+
+
             services.AddControllers();
 
             // Add SignalR

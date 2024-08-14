@@ -28,5 +28,6 @@ namespace SinavService.DataAccessLayer.Concrete
         public DbSet<AytSozelHedef> AytSozelHedef { get; set; }
         public DbSet<AytYdHedef> AytYdHedef { get; set; }
         public DbSet<TytHedef> TytHedef { get; set; }
+        public DbSet<Kisi> Kisi { get; set; }
     }
 }

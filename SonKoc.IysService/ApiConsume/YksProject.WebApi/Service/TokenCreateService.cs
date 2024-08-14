@@ -44,7 +44,7 @@ namespace YksProject.WebApi.Service
                 new Claim(ClaimTypes.Role,"User"),
             };
             JwtSecurityToken token = new JwtSecurityToken(issuer: "http://localhost", audience: "http://localhost",
-              notBefore: DateTime.Now, expires: DateTime.Now.AddDays(3),
+              notBefore: DateTime.Now, expires: DateTime.Now.AddDays(5),
               signingCredentials: credentials, claims: claims);
 
             JwtSecurityTokenHandler handler = new JwtSecurityTokenHandler();
@@ -63,7 +63,7 @@ namespace YksProject.WebApi.Service
                 new Claim(ClaimTypes.Role,"Admin"),
             };
             JwtSecurityToken token = new JwtSecurityToken(issuer: "http://localhost", audience: "http://localhost",
-              notBefore: DateTime.Now, expires: DateTime.Now.AddDays(3),
+              notBefore: DateTime.Now, expires: DateTime.Now.AddDays(5),
               signingCredentials: credentials,claims:claims);
 
             JwtSecurityTokenHandler handler = new JwtSecurityTokenHandler();
@@ -82,7 +82,7 @@ namespace YksProject.WebApi.Service
                 new Claim(ClaimTypes.Role,"Visitor"),
             };
             JwtSecurityToken token = new JwtSecurityToken(issuer: "http://localhost", audience: "http://localhost",
-              notBefore: DateTime.Now, expires: DateTime.Now.AddDays(3),
+              notBefore: DateTime.Now, expires: DateTime.Now.AddDays(5),
               signingCredentials: credentials, claims: claims);
 
             JwtSecurityTokenHandler handler = new JwtSecurityTokenHandler();
@@ -101,7 +101,7 @@ namespace YksProject.WebApi.Service
                 new Claim(ClaimTypes.Role,"Kurum"),
             };
             JwtSecurityToken token = new JwtSecurityToken(issuer: "http://localhost", audience: "http://localhost",
-              notBefore: DateTime.Now, expires: DateTime.Now.AddDays(3),
+              notBefore: DateTime.Now, expires: DateTime.Now.AddDays(5),
               signingCredentials: credentials, claims: claims);
 
             JwtSecurityTokenHandler handler = new JwtSecurityTokenHandler();
@@ -120,7 +120,7 @@ namespace YksProject.WebApi.Service
                 new Claim(ClaimTypes.Role,"Ogretmen"),
             };
             JwtSecurityToken token = new JwtSecurityToken(issuer: "http://localhost", audience: "http://localhost",
-              notBefore: DateTime.Now, expires: DateTime.Now.AddDays(3),
+              notBefore: DateTime.Now, expires: DateTime.Now.AddDays(5),
               signingCredentials: credentials, claims: claims);
 
             JwtSecurityTokenHandler handler = new JwtSecurityTokenHandler();
@@ -139,7 +139,7 @@ namespace YksProject.WebApi.Service
                 new Claim(ClaimTypes.Role,rolAdi),
             };
             JwtSecurityToken token = new JwtSecurityToken(issuer: "http://localhost", audience: "http://localhost",
-              notBefore: DateTime.Now, expires: DateTime.Now.AddDays(3),
+              notBefore: DateTime.Now, expires: DateTime.Now.AddDays(5),
               signingCredentials: credentials, claims: claims);
 
             JwtSecurityTokenHandler handler = new JwtSecurityTokenHandler();

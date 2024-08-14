@@ -7,17 +7,11 @@ using System.Threading.Tasks;
 
 namespace YksProject.EntityLayer.Concrete
 {
-    public class PromoKey
+    public class GununSozu
     {
         [Key]
-        public  int TabloID { get; set; }
-        public string  PromoKod { get; set; }
-        public string PromoKodNeİcin { get; set;}
-        public int PromoKeyLimit { get; set; }
-        public int PromoKeyKullanimSayisi { get; set; }
-        public int PromoKeyYuzdeKacIndirim { get; set; }
-
-        public DateTime PromoKeySonKullanimTarihi { get; set; }
+        public int TabloID { get; set; }
+        public string Soz {  get; set; }
         /// <summary>
         /// BaseModel
         /// </summary>

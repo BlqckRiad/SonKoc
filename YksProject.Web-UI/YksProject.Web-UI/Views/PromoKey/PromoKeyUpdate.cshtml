@@ -1,0 +1,45 @@
+﻿@{
+    ViewData["Title"] = "Promo Kod";
+    Layout = "_LayoutAdmin";
+    ViewData["PageTitle"] = "Promo Kod Işlemleri";
+    ViewData["PageMainAdresse"] = "/PromoKey/PromoKeyList";
+    ViewData["PageMainTitle"] = "Promo Kod Işlemleri";
+    ViewData["PageTwiceTitle"] = "Promo Kod Güncelle";
+}
+
+<h2>Promo Kod Güncelle Sayfası </h2>
+
+
+<br />
+<label>Promo Kod </label>
+<input type="text" id="promokod" class="form-control" />
+
+<br />
+<label>Promo Kod Ne İçin</label>
+<input type="text" id="promokodneicin" class="form-control" />
+
+<br />
+<label>Promo Kod Limit </label>
+<input type="text" id="promokodlimit" class="form-control" />
+
+<br />
+<label>Promo Kod İndirim Oranı(%)</label>
+<input type="text" id="promokodindirim" class="form-control" />
+
+<br />
+
+
+
+<button class="btn  mb-1 btn-rounded btn-primary" onclick="Guncelle()">Güncelle</button>
+<button class="btn  mb-1 btn-rounded btn-info" onclick="ListelemeyeDon()">Listelemeye Dön</button>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+<script src="~/js/promokey/promokeyupdate.js"></script>
+
+<script>
+    function ListelemeyeDon() {
+        location.href = "/PromoKey/PromoKeyList";
+    }
+</script>

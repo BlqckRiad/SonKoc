@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using SinavService.BusinessLayer.Abstract;
 using SinavService.DtoLayer.Dtos;
+using SinavService.DtoLayer.DtosForUI;
 using SinavService.EntityLayer.Concrete;
 using System;
 using System.Linq;
@@ -13,9 +14,27 @@ namespace SinavService.SinavApi.Controllers
     public class SinavController : ControllerBase
     {
         private readonly ISinavService _sinavservice;
-        public SinavController(ISinavService sinavService)
+        private readonly IKisiService _kisiservice;
+        private readonly ITytSinavGirisTablosuService _tytSinavGirisTablosuService;
+        private readonly IAytSayService _aytsayService;
+        private readonly IAytEaService _ayteaService;
+        private readonly IAytSozelService _aytsozelService;
+        private readonly IAytDilService _aytydService;
+        public SinavController(ISinavService sinavService, IKisiService kisiService,
+            ITytSinavGirisTablosuService tytSinavGirisTablosuService,
+            IAytSayService k1,
+            IAytEaService k2,
+            IAytSozelService k3,
+            IAytDilService k4
+           )
         {
             _sinavservice = sinavService;
+            _kisiservice = kisiService;
+            _tytSinavGirisTablosuService = tytSinavGirisTablosuService;
+            _aytsayService = k1;
+            _ayteaService = k2;
+            _aytsozelService = k3;
+            _aytydService = k4;
         }
         [HttpGet]
         [Route("/Sinav/KisiGenelSinavlariGetir")]
@@ -80,6 +99,39 @@ namespace SinavService.SinavApi.Controllers
             result.SilenKisiID = model.SilenKisiID;
             _sinavservice.TUpdate(result);
             return Ok();
+        }
+        [HttpGet]
+        [Route("/Sinav/KisiGirilenSinavSayisiGet")]
+        public IActionResult KisiGirilenSinavSayisiGet(int id)
+        {
+            var kisibolum = _kisiservice.TGetByid(id);
+            if(kisibolum == null)
+            {
+                return BadRequest("Kişi Bulunamadı");
+            }
+            var kisibolumid = kisibolum.KisiBolumID;
+            var kisitoplamtytgirissayisi = _tytSinavGirisTablosuService.TGetList().Where(x=> x.GirenKisiID == id).Count();
+            var kisitoplamaytgirissayisi = 0;
+            if(kisibolumid ==1)
+            {
+                kisitoplamaytgirissayisi = _aytsayService.TGetList().Where(x => x.GirenKisiID == id).Count();
+            }
+            if (kisibolumid == 2)
+            {
+                kisitoplamaytgirissayisi = _ayteaService.TGetList().Where(x => x.GirenKisiID == id).Count();
+            }
+            if (kisibolumid == 3)
+            {
+                kisitoplamaytgirissayisi = _aytsozelService.TGetList().Where(x => x.GirenKisiID == id).Count();
+            }
+            if (kisibolumid == 4)
+            {
+                kisitoplamaytgirissayisi = _aytydService.TGetList().Where(x => x.GirenKisiID == id).Count();
+            }
+            var girisdto = new GirilenSinavSayisiDto();
+            girisdto.ToplamAytSayisi = kisitoplamaytgirissayisi;
+            girisdto.ToplamTytSayisi = kisitoplamtytgirissayisi;
+            return Ok(girisdto);
         }
     }
 }
