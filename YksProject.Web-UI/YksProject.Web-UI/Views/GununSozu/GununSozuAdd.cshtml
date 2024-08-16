@@ -1,0 +1,32 @@
+﻿@{
+    ViewData["Title"] = "Günün Sözü";
+    Layout = "_LayoutAdmin";
+    ViewData["PageTitle"] = "Günün Sözü Işlemleri";
+    ViewData["PageMainAdresse"] = "/GununSozu/GununSozuList";
+    ViewData["PageMainTitle"] = "Günün Sözü Işlemleri";
+    ViewData["PageTwiceTitle"] = "Günün Sözü Ekle";
+}
+
+<h2>Günün Sözü Ekleme Sayfası </h2>
+
+
+<br />
+<label>Hadi Bugüne Bir Söz Bırakalım :) </label>
+<input type="text" id="soz" class="form-control" />
+
+
+
+
+<button class="btn  mb-1 btn-rounded btn-primary" onclick="Ekle()">Ekle</button>
+<button class="btn  mb-1 btn-rounded btn-info" onclick="ListelemeyeDon()">Listelemeye Dön</button>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+<script src="~/js/gununsozu/gununsozuadd.js"></script>
+
+<script>
+    function ListelemeyeDon() {
+        location.href = "/GununSozu/GununSozuList";
+    }
+</script>

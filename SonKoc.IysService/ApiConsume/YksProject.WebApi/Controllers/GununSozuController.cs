@@ -22,7 +22,7 @@ namespace YksProject.WebApi.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            var sozler = _gununsozuservice.TGetList().Where(X=> X.SilindiMi ==false)
+            var sozler = _gununsozuservice.TGetList().Where(X => X.SilindiMi == false);
             return Ok(sozler);
         }
         [HttpPost]
@@ -50,6 +50,16 @@ namespace YksProject.WebApi.Controllers
         {
             var soz = _gununsozuservice.TGetByid(id);
             return Ok(soz);
+        }
+        [HttpPost]
+        public IActionResult GununSozuUpdate(GununSozuUpdateDto model)
+        {
+            var gununsozu = _gununsozuservice.TGetByid(model.TabloID);
+            gununsozu.Soz = model.Soz;
+            gununsozu.GuncellenmeTarihi = DateTime.Now;
+            gununsozu.GuncelleyenKisiID = model.GuncelleyenKisiID;
+            _gununsozuservice.TUpdate(gununsozu);
+            return Ok();
         }
     }
 }

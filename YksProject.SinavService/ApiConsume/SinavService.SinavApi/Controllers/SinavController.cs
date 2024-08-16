@@ -5,6 +5,7 @@ using SinavService.DtoLayer.Dtos;
 using SinavService.DtoLayer.DtosForUI;
 using SinavService.EntityLayer.Concrete;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace SinavService.SinavApi.Controllers
@@ -132,6 +133,272 @@ namespace SinavService.SinavApi.Controllers
             girisdto.ToplamAytSayisi = kisitoplamaytgirissayisi;
             girisdto.ToplamTytSayisi = kisitoplamtytgirissayisi;
             return Ok(girisdto);
+        }
+        [HttpGet]
+        [Route("/Sinav/KisiSon4DenemeGet")]
+        public IActionResult KisiSon4DenemeGet(int id)
+        {
+            var kisibolum = _kisiservice.TGetByid(id);
+            if (kisibolum == null)
+            {
+                return BadRequest("Kişi Bulunamadı");
+            }
+
+            var kisibolumid = kisibolum.KisiBolumID;
+
+            var kisitytdenemeleri = _tytSinavGirisTablosuService.TGetList()
+               .Where(x => x.GirenKisiID == id && x.SilindiMi == false)
+                .OrderByDescending(x => x.OlusturulmaTarihi)
+                .Take(4);
+
+            IEnumerable<AytSayHedef> kisiaytdenemeleri = null;
+            // Deneme sonuçlarını tutacak liste
+            List<KisiGirilenSon4DenemeDto> son4Denemeler = new List<KisiGirilenSon4DenemeDto>();
+
+            // TYT denemeleri ekle
+            foreach (var deneme in kisitytdenemeleri)
+            {
+                son4Denemeler.Add(new KisiGirilenSon4DenemeDto
+                {
+                    DenemeTabloID = deneme.TabloID,
+                    DenemeTipiID = 0, // TYT tipini temsil eder
+                    DenemeAdi = deneme.SinavAdi,
+                    DenemeDogruSayisi = deneme.TytTurkceDogruSayisi + deneme.TytMatematikDogruSayisi + deneme.TytFenDogruSayisi + deneme.TytSosyalDogruSayisi,
+                    DenemeYanlisSayisi = deneme.TytTurkceYanlisSayisi + deneme.TytMatematikYanlisSayisi + deneme.TytFenYanlisSayisi + deneme.TytSosyalYanlisSayisi,
+                    DenemeBosSayisi = 0, // Gerekirse hesaplanabilir
+                    DenemeGirenKisiID = id,
+                    DenemeGirisTarihi = deneme.OlusturulmaTarihi
+                });
+            }
+
+            // AYT denemelerini ekle
+            if (kisibolumid == 1) // SAY
+            {
+                var aytSayDenemeleri = _aytsayService.TGetList()
+                    .Where(x => x.GirenKisiID == id && x.SilindiMi == false)
+                    .OrderByDescending(x => x.OlusturulmaTarihi)
+                    .Take(4);
+
+                foreach (var deneme in aytSayDenemeleri)
+                {
+                    son4Denemeler.Add(new KisiGirilenSon4DenemeDto
+                    {
+                        DenemeTabloID = deneme.TabloID,
+                        DenemeTipiID = kisibolumid, // SAY tipi
+                        DenemeAdi = deneme.SinavAdi,
+                        DenemeDogruSayisi = deneme.AytMatDogruSayisi + deneme.AytFizikDogruSayisi + deneme.AytKimyaDogruSayisi + deneme.AytBiyolojiDogruSayisi,
+                        DenemeYanlisSayisi = deneme.AytMatYanlisSayisi + deneme.AytFizikYanlisSayisi + deneme.AytKimyaYanlisSayisi + deneme.AytBiyolojiYanlisSayisi,
+                        DenemeBosSayisi = 0,
+                        DenemeGirenKisiID = id,
+                        DenemeGirisTarihi = deneme.OlusturulmaTarihi
+                    });
+                }
+            }
+            else if (kisibolumid == 2) // EA
+            {
+                var aytEaDenemeleri = _ayteaService.TGetList()
+                    .Where(x => x.GirenKisiID == id && x.SilindiMi == false)
+                    .OrderByDescending(x => x.OlusturulmaTarihi)
+                    .Take(4);
+
+                foreach (var deneme in aytEaDenemeleri)
+                {
+                    son4Denemeler.Add(new KisiGirilenSon4DenemeDto
+                    {
+                        DenemeTabloID = deneme.TabloID,
+                        DenemeTipiID = kisibolumid, // EA tipi
+                        DenemeAdi = deneme.SinavAdi,
+                        DenemeDogruSayisi = deneme.AytMatDogruSayisi + deneme.AytEdebiyatDogruSayisi + deneme.AytTarih1DogruSayisi + deneme.AytCografya1DogruSayisi,
+                        DenemeYanlisSayisi = deneme.AytMatYanlisSayisi + deneme.AytEdebiyatYanlisSayisi + deneme.AytTarih1YanlisSayisi + deneme.AytCografya1YanlisSayisi,
+                        DenemeBosSayisi = 0,
+                        DenemeGirenKisiID = id,
+                        DenemeGirisTarihi = deneme.OlusturulmaTarihi
+                    });
+                }
+            }
+            else if (kisibolumid == 3) // SOZEL
+            {
+                var aytSozelDenemeleri = _aytsozelService.TGetList()
+                    .Where(x => x.GirenKisiID == id && x.SilindiMi == false)
+                    .OrderByDescending(x => x.OlusturulmaTarihi)
+                    .Take(4);
+
+                foreach (var deneme in aytSozelDenemeleri)
+                {
+                    son4Denemeler.Add(new KisiGirilenSon4DenemeDto
+                    {
+                        DenemeTabloID = deneme.TabloID,
+                        DenemeTipiID = kisibolumid, // SOZEL tipi
+                        DenemeAdi = deneme.SinavAdi,
+                        DenemeDogruSayisi = deneme.AytEdebiyatDogruSayisi + deneme.AytTarih1DogruSayisi + deneme.AytTarih2DogruSayisi + deneme.AytCografya1DogruSayisi + deneme.AytCografya2DogruSayisi + deneme.AytFelsefeDogruSayisi + deneme.AytDinDogruSayisi,
+                        DenemeYanlisSayisi = deneme.AytEdebiyatYanlisSayisi + deneme.AytTarih1YanlisSayisi + deneme.AytTarih2YanlisSayisi + deneme.AytCografya1YanlisSayisi + deneme.AytCografya2YanlisSayisi + deneme.AytFelsefeYanlisSayisi + deneme.AytDinYanlisSayisi,
+                        DenemeBosSayisi = 0,
+                        DenemeGirenKisiID = id,
+                        DenemeGirisTarihi = deneme.OlusturulmaTarihi
+                    });
+                }
+            }
+            else if (kisibolumid == 4) // DİL
+            {
+                var aytDilDenemeleri = _aytydService.TGetList()
+                    .Where(x => x.GirenKisiID == id && x.SilindiMi == false)
+                    .OrderByDescending(x => x.OlusturulmaTarihi)
+                    .Take(4);
+
+                foreach (var deneme in aytDilDenemeleri)
+                {
+                    son4Denemeler.Add(new KisiGirilenSon4DenemeDto
+                    {
+                        DenemeTabloID = deneme.TabloID,
+                        DenemeTipiID = kisibolumid, // DİL tipi
+                        DenemeAdi = deneme.SinavAdi,
+                        DenemeDogruSayisi = deneme.AytDilDogruSayisi,
+                        DenemeYanlisSayisi = deneme.AytDilYanlisSayisi,
+                        DenemeBosSayisi = 0,
+                        DenemeGirenKisiID = id,
+                        DenemeGirisTarihi = deneme.OlusturulmaTarihi
+                    });
+                }
+            }
+            var son4SiralanmisDenemeler = son4Denemeler
+       .OrderByDescending(x => x.DenemeGirisTarihi)
+       .Take(4)
+       .ToList();
+            // Sonuçları döndür
+            return Ok(son4Denemeler);
+
+        }
+
+        [HttpGet]
+        [Route("/Sinav/KisiSonDenemelerGet")]
+        public IActionResult KisiSonDenemelerGet(int id)
+        {
+            var kisibolum = _kisiservice.TGetByid(id);
+            if (kisibolum == null)
+            {
+                return BadRequest("Kişi Bulunamadı");
+            }
+
+            var kisibolumid = kisibolum.KisiBolumID;
+
+            var kisitytdenemeleri = _tytSinavGirisTablosuService.TGetList()
+               .Where(x => x.GirenKisiID == id && x.SilindiMi == false)
+                .OrderByDescending(x => x.OlusturulmaTarihi)
+                .Take(4);
+
+            IEnumerable<AytSayHedef> kisiaytdenemeleri = null;
+            // Deneme sonuçlarını tutacak liste
+            List<KisiGirilenSon4DenemeDto> son4Denemeler = new List<KisiGirilenSon4DenemeDto>();
+
+            // TYT denemeleri ekle
+            foreach (var deneme in kisitytdenemeleri)
+            {
+                son4Denemeler.Add(new KisiGirilenSon4DenemeDto
+                {
+                    DenemeTabloID = deneme.TabloID,
+                    DenemeTipiID = 0, // TYT tipini temsil eder
+                    DenemeAdi = deneme.SinavAdi,
+                    DenemeDogruSayisi = deneme.TytTurkceDogruSayisi + deneme.TytMatematikDogruSayisi + deneme.TytFenDogruSayisi + deneme.TytSosyalDogruSayisi,
+                    DenemeYanlisSayisi = deneme.TytTurkceYanlisSayisi + deneme.TytMatematikYanlisSayisi + deneme.TytFenYanlisSayisi + deneme.TytSosyalYanlisSayisi,
+                    DenemeBosSayisi = 0, // Gerekirse hesaplanabilir
+                    DenemeGirenKisiID = id,
+                    DenemeGirisTarihi = deneme.OlusturulmaTarihi
+                });
+            }
+
+            // AYT denemelerini ekle
+            if (kisibolumid == 1) // SAY
+            {
+                var aytSayDenemeleri = _aytsayService.TGetList()
+                    .Where(x => x.GirenKisiID == id && x.SilindiMi == false)
+                    .OrderByDescending(x => x.OlusturulmaTarihi)
+                    .Take(4);
+
+                foreach (var deneme in aytSayDenemeleri)
+                {
+                    son4Denemeler.Add(new KisiGirilenSon4DenemeDto
+                    {
+                        DenemeTabloID = deneme.TabloID,
+                        DenemeTipiID = kisibolumid, // SAY tipi
+                        DenemeAdi = deneme.SinavAdi,
+                        DenemeDogruSayisi = deneme.AytMatDogruSayisi + deneme.AytFizikDogruSayisi + deneme.AytKimyaDogruSayisi + deneme.AytBiyolojiDogruSayisi,
+                        DenemeYanlisSayisi = deneme.AytMatYanlisSayisi + deneme.AytFizikYanlisSayisi + deneme.AytKimyaYanlisSayisi + deneme.AytBiyolojiYanlisSayisi,
+                        DenemeBosSayisi = 0,
+                        DenemeGirenKisiID = id,
+                        DenemeGirisTarihi = deneme.OlusturulmaTarihi
+                    });
+                }
+            }
+            else if (kisibolumid == 2) // EA
+            {
+                var aytEaDenemeleri = _ayteaService.TGetList()
+                    .Where(x => x.GirenKisiID == id && x.SilindiMi == false)
+                    .OrderByDescending(x => x.OlusturulmaTarihi)
+                    .Take(4);
+
+                foreach (var deneme in aytEaDenemeleri)
+                {
+                    son4Denemeler.Add(new KisiGirilenSon4DenemeDto
+                    {
+                        DenemeTabloID = deneme.TabloID,
+                        DenemeTipiID = kisibolumid, // EA tipi
+                        DenemeAdi = deneme.SinavAdi,
+                        DenemeDogruSayisi = deneme.AytMatDogruSayisi + deneme.AytEdebiyatDogruSayisi + deneme.AytTarih1DogruSayisi + deneme.AytCografya1DogruSayisi,
+                        DenemeYanlisSayisi = deneme.AytMatYanlisSayisi + deneme.AytEdebiyatYanlisSayisi + deneme.AytTarih1YanlisSayisi + deneme.AytCografya1YanlisSayisi,
+                        DenemeBosSayisi = 0,
+                        DenemeGirenKisiID = id,
+                        DenemeGirisTarihi = deneme.OlusturulmaTarihi
+                    });
+                }
+            }
+            else if (kisibolumid == 3) // SOZEL
+            {
+                var aytSozelDenemeleri = _aytsozelService.TGetList()
+                    .Where(x => x.GirenKisiID == id && x.SilindiMi == false)
+                    .OrderByDescending(x => x.OlusturulmaTarihi)
+                    .Take(4);
+
+                foreach (var deneme in aytSozelDenemeleri)
+                {
+                    son4Denemeler.Add(new KisiGirilenSon4DenemeDto
+                    {
+                        DenemeTabloID = deneme.TabloID,
+                        DenemeTipiID = kisibolumid, // SOZEL tipi
+                        DenemeAdi = deneme.SinavAdi,
+                        DenemeDogruSayisi = deneme.AytEdebiyatDogruSayisi + deneme.AytTarih1DogruSayisi + deneme.AytTarih2DogruSayisi + deneme.AytCografya1DogruSayisi + deneme.AytCografya2DogruSayisi + deneme.AytFelsefeDogruSayisi + deneme.AytDinDogruSayisi,
+                        DenemeYanlisSayisi = deneme.AytEdebiyatYanlisSayisi + deneme.AytTarih1YanlisSayisi + deneme.AytTarih2YanlisSayisi + deneme.AytCografya1YanlisSayisi + deneme.AytCografya2YanlisSayisi + deneme.AytFelsefeYanlisSayisi + deneme.AytDinYanlisSayisi,
+                        DenemeBosSayisi = 0,
+                        DenemeGirenKisiID = id,
+                        DenemeGirisTarihi = deneme.OlusturulmaTarihi
+                    });
+                }
+            }
+            else if (kisibolumid == 4) // DİL
+            {
+                var aytDilDenemeleri = _aytydService.TGetList()
+                    .Where(x => x.GirenKisiID == id && x.SilindiMi == false)
+                    .OrderByDescending(x => x.OlusturulmaTarihi)
+                    .Take(4);
+
+                foreach (var deneme in aytDilDenemeleri)
+                {
+                    son4Denemeler.Add(new KisiGirilenSon4DenemeDto
+                    {
+                        DenemeTabloID = deneme.TabloID,
+                        DenemeTipiID = kisibolumid, // DİL tipi
+                        DenemeAdi = deneme.SinavAdi,
+                        DenemeDogruSayisi = deneme.AytDilDogruSayisi,
+                        DenemeYanlisSayisi = deneme.AytDilYanlisSayisi,
+                        DenemeBosSayisi = 0,
+                        DenemeGirenKisiID = id,
+                        DenemeGirisTarihi = deneme.OlusturulmaTarihi
+                    });
+                }
+            }
+           
+            // Sonuçları döndür
+            return Ok(son4Denemeler);
+
         }
     }
 }
