@@ -19,5 +19,7 @@ namespace YksProject.Web_UI.Models.Dtos.UyelikPaketleri
         /// </summary>
         public DateTime OlusturulmaTarihi { get; set; }
         public int OlusturanKisiID { get; set; }
+
+
     }
 }

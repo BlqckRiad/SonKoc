@@ -162,6 +162,7 @@ namespace SinavService.SinavApi.Controllers
                 {
                     DenemeTabloID = deneme.TabloID,
                     DenemeTipiID = 0, // TYT tipini temsil eder
+                    IconName = "TytIcon",
                     DenemeAdi = deneme.SinavAdi,
                     DenemeDogruSayisi = deneme.TytTurkceDogruSayisi + deneme.TytMatematikDogruSayisi + deneme.TytFenDogruSayisi + deneme.TytSosyalDogruSayisi,
                     DenemeYanlisSayisi = deneme.TytTurkceYanlisSayisi + deneme.TytMatematikYanlisSayisi + deneme.TytFenYanlisSayisi + deneme.TytSosyalYanlisSayisi,
@@ -185,6 +186,7 @@ namespace SinavService.SinavApi.Controllers
                     {
                         DenemeTabloID = deneme.TabloID,
                         DenemeTipiID = kisibolumid, // SAY tipi
+                        IconName = "AytSayIcon",
                         DenemeAdi = deneme.SinavAdi,
                         DenemeDogruSayisi = deneme.AytMatDogruSayisi + deneme.AytFizikDogruSayisi + deneme.AytKimyaDogruSayisi + deneme.AytBiyolojiDogruSayisi,
                         DenemeYanlisSayisi = deneme.AytMatYanlisSayisi + deneme.AytFizikYanlisSayisi + deneme.AytKimyaYanlisSayisi + deneme.AytBiyolojiYanlisSayisi,
@@ -208,6 +210,7 @@ namespace SinavService.SinavApi.Controllers
                         DenemeTabloID = deneme.TabloID,
                         DenemeTipiID = kisibolumid, // EA tipi
                         DenemeAdi = deneme.SinavAdi,
+                        IconName = "AytEAIcon",
                         DenemeDogruSayisi = deneme.AytMatDogruSayisi + deneme.AytEdebiyatDogruSayisi + deneme.AytTarih1DogruSayisi + deneme.AytCografya1DogruSayisi,
                         DenemeYanlisSayisi = deneme.AytMatYanlisSayisi + deneme.AytEdebiyatYanlisSayisi + deneme.AytTarih1YanlisSayisi + deneme.AytCografya1YanlisSayisi,
                         DenemeBosSayisi = 0,
@@ -230,6 +233,7 @@ namespace SinavService.SinavApi.Controllers
                         DenemeTabloID = deneme.TabloID,
                         DenemeTipiID = kisibolumid, // SOZEL tipi
                         DenemeAdi = deneme.SinavAdi,
+                        IconName = "AytSozelIcon",
                         DenemeDogruSayisi = deneme.AytEdebiyatDogruSayisi + deneme.AytTarih1DogruSayisi + deneme.AytTarih2DogruSayisi + deneme.AytCografya1DogruSayisi + deneme.AytCografya2DogruSayisi + deneme.AytFelsefeDogruSayisi + deneme.AytDinDogruSayisi,
                         DenemeYanlisSayisi = deneme.AytEdebiyatYanlisSayisi + deneme.AytTarih1YanlisSayisi + deneme.AytTarih2YanlisSayisi + deneme.AytCografya1YanlisSayisi + deneme.AytCografya2YanlisSayisi + deneme.AytFelsefeYanlisSayisi + deneme.AytDinYanlisSayisi,
                         DenemeBosSayisi = 0,
@@ -252,6 +256,7 @@ namespace SinavService.SinavApi.Controllers
                         DenemeTabloID = deneme.TabloID,
                         DenemeTipiID = kisibolumid, // DİL tipi
                         DenemeAdi = deneme.SinavAdi,
+                        IconName = "AytDilIcon",
                         DenemeDogruSayisi = deneme.AytDilDogruSayisi,
                         DenemeYanlisSayisi = deneme.AytDilYanlisSayisi,
                         DenemeBosSayisi = 0,
@@ -297,6 +302,7 @@ namespace SinavService.SinavApi.Controllers
                 {
                     DenemeTabloID = deneme.TabloID,
                     DenemeTipiID = 0, // TYT tipini temsil eder
+                    IconName = "TytIcon",
                     DenemeAdi = deneme.SinavAdi,
                     DenemeDogruSayisi = deneme.TytTurkceDogruSayisi + deneme.TytMatematikDogruSayisi + deneme.TytFenDogruSayisi + deneme.TytSosyalDogruSayisi,
                     DenemeYanlisSayisi = deneme.TytTurkceYanlisSayisi + deneme.TytMatematikYanlisSayisi + deneme.TytFenYanlisSayisi + deneme.TytSosyalYanlisSayisi,
@@ -320,6 +326,7 @@ namespace SinavService.SinavApi.Controllers
                     {
                         DenemeTabloID = deneme.TabloID,
                         DenemeTipiID = kisibolumid, // SAY tipi
+                        IconName = "AytSayIcon",
                         DenemeAdi = deneme.SinavAdi,
                         DenemeDogruSayisi = deneme.AytMatDogruSayisi + deneme.AytFizikDogruSayisi + deneme.AytKimyaDogruSayisi + deneme.AytBiyolojiDogruSayisi,
                         DenemeYanlisSayisi = deneme.AytMatYanlisSayisi + deneme.AytFizikYanlisSayisi + deneme.AytKimyaYanlisSayisi + deneme.AytBiyolojiYanlisSayisi,
@@ -342,6 +349,7 @@ namespace SinavService.SinavApi.Controllers
                     {
                         DenemeTabloID = deneme.TabloID,
                         DenemeTipiID = kisibolumid, // EA tipi
+                        IconName = "AytEAIcon",
                         DenemeAdi = deneme.SinavAdi,
                         DenemeDogruSayisi = deneme.AytMatDogruSayisi + deneme.AytEdebiyatDogruSayisi + deneme.AytTarih1DogruSayisi + deneme.AytCografya1DogruSayisi,
                         DenemeYanlisSayisi = deneme.AytMatYanlisSayisi + deneme.AytEdebiyatYanlisSayisi + deneme.AytTarih1YanlisSayisi + deneme.AytCografya1YanlisSayisi,
@@ -364,6 +372,7 @@ namespace SinavService.SinavApi.Controllers
                     {
                         DenemeTabloID = deneme.TabloID,
                         DenemeTipiID = kisibolumid, // SOZEL tipi
+                        IconName = "AytSozelIcon",
                         DenemeAdi = deneme.SinavAdi,
                         DenemeDogruSayisi = deneme.AytEdebiyatDogruSayisi + deneme.AytTarih1DogruSayisi + deneme.AytTarih2DogruSayisi + deneme.AytCografya1DogruSayisi + deneme.AytCografya2DogruSayisi + deneme.AytFelsefeDogruSayisi + deneme.AytDinDogruSayisi,
                         DenemeYanlisSayisi = deneme.AytEdebiyatYanlisSayisi + deneme.AytTarih1YanlisSayisi + deneme.AytTarih2YanlisSayisi + deneme.AytCografya1YanlisSayisi + deneme.AytCografya2YanlisSayisi + deneme.AytFelsefeYanlisSayisi + deneme.AytDinYanlisSayisi,
@@ -386,6 +395,7 @@ namespace SinavService.SinavApi.Controllers
                     {
                         DenemeTabloID = deneme.TabloID,
                         DenemeTipiID = kisibolumid, // DİL tipi
+                        IconName = "AytDilIcon",
                         DenemeAdi = deneme.SinavAdi,
                         DenemeDogruSayisi = deneme.AytDilDogruSayisi,
                         DenemeYanlisSayisi = deneme.AytDilYanlisSayisi,
@@ -395,6 +405,7 @@ namespace SinavService.SinavApi.Controllers
                     });
                 }
             }
+            
            
             // Sonuçları döndür
             return Ok(son4Denemeler);

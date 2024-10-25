@@ -1,4 +1,5 @@
 ﻿using SonKocApp.BusinessLayer.Abstract;
+using SonKocApp.DataAccessLayer.Abstract;
 using SonKocApp.EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;

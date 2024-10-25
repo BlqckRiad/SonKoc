@@ -16,5 +16,6 @@ namespace SinavService.DtoLayer.DtosForUI
         public int DenemeBosSayisi { get; set; }
         public int DenemeGirenKisiID { get; set; }
         public DateTime DenemeGirisTarihi { get; set; }
+        public string IconName { get; set; }
     }
 }
